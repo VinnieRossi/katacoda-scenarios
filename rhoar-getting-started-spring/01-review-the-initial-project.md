@@ -57,7 +57,7 @@ Since our application will be a web application we need to use a servlet contain
 
 >**NOTE:** Undertow is another an open source project that is maintained by Red Hat and therefore Red Hat plans to add support for Undertow shortly.
 
-To add Apache Tomcat to our project all we have to do is to add the following lines in ``pom.xml``{{open}}
+To add Apache Tomcat to our project, add the following lines in the ``pom.xml``{{open}} (If you left the TODO comments in you can click the `Copy to Editor` button to do this automatically)
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add web (tomcat) dependency here -->">
     &lt;dependency&gt;
@@ -68,11 +68,13 @@ To add Apache Tomcat to our project all we have to do is to add the following li
 
 There are other dependencies brought in by this Spring Starter POM. We will revisit these later in the scenario.
 
+You may notice that there is no `<version>` tag here. That's because the version numbers are managed and automatically derived by the BOM we included earlier. 
+
 **2. Test the application locally**
 
-As we develop the application we want to be able to test and verify our change at different stages. We can do that locally by using the `spring-boot` maven plugin.
+As we develop the application we want to be able to test and verify our change at different stages. One way we can do that locally is by using the `spring-boot` maven plugin.
 
-Run the application by executing the following command:
+Run the application by executing the following command (it should exit automatically as we do not have any web code yet):
 
 ``mvn spring-boot:run``{{execute}}
 
@@ -92,7 +94,7 @@ You should now see an HTML page that looks like this:
 
 As you can probably guess by now the application we are building is a Fruit repository where we create, read, update and delete different kinds of fruits.
 
-**NOTE:** None of the buttons work at this stage since we haven't implemented services for them yet.
+>**NOTE:** None of the buttons work at this stage since we haven't implemented services for them yet.
 
 **4. Stop the application**
 
