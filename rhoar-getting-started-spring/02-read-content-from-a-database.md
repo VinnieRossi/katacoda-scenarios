@@ -26,7 +26,7 @@ We also need a Database to actually interact with. When running locally or when 
           &lt;scope&gt;runtime&lt;/scope&gt;
         &lt;/dependency&gt;</pre>
 
-If Spring Boot sees a database like H2 on the classpath it will automatically configure an in-memory one for us as well as all the connection Beans necessary to connect to it. We've chosen to override these settings in the ``application-local.properties``{{open}} file to demonstrate that you can interact with Spring Boot's auto-configuration quite easily.
+If Spring Boot sees a database like H2 on the classpath it will automatically configure an in-memory one for us as well as all the connection Beans necessary to connect to it. We've chosen to override these settings in the ``application-local.properties``{{open}} file to demonstrate that you can interact with Spring Boot's auto-configuration quite easily. 
 
 **2. Create an Entity class**
 
@@ -85,14 +85,14 @@ The repository should provide with methods for insert, update, select and delete
 
 First, we need to create the java class file. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to editor` button):
+Then, copy the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitRepository.java" data-target="replace">
 package com.example.service;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface FruitRepository extends CrudRepository&lt;Fruit, Integer&gt; {
+public interface FruitRepository extends CrudRepository&lt;Fruit, Long&gt; {
 }
 </pre>
 
