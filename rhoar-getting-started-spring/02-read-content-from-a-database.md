@@ -4,13 +4,11 @@ In Step 1 you learned how to get started with our project. In this step, we will
 
 **1. Adding JPA (Hibernate) to the application**
 
-Since our applications (like most) will need to access a database to read retrieve and store fruits entries, we need to add Java Persistence API to our project. 
-
-The default implementation is Spring Boot is Hibernate, and that has also been tested and verified as part of the OpenShift Application Runtimes.
+Since our application will need to access a database to retrieve and store fruit entries we need to add a Database Connection library. One such implementation in Spring Boot is the Spring Data project which contains the Java Persistence APIs (JPA) and a JPA implementation - Hibernate. Hibernate been tested and verified as part of the OpenShift Application Runtimes so we are going to use it here.
 
 >**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in OpenShift Application Runtimes. 
 
-To add Hibernate to our project all we have to do is to add the following line in ``pom.xml``{{open}}
+To add Spring Data + JPA and Hibernate to our project all we have to do is to add the following line in ``pom.xml``{{open}}
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add JPA dependency here -->">
     &lt;dependency&gt;
@@ -19,7 +17,7 @@ To add Hibernate to our project all we have to do is to add the following line i
     &lt;/dependency&gt;
 </pre>
 
-When testing starting locally or when running test we also need to use a local database. H2 is a small in-memory database that is perfect for testing but is not recommended for production environments. To add H2 add the following dependency at the comment `<!-- TODO: ADD H2 database dependency here -->` in the local profile.
+We also need a Database to actually interact with. When running locally or when running tests an in-memory Database is often used over connection to an external Database because its lifecyle can be managed by Spring and we don't have to worry about outages. H2 is a small in-memory database that is perfect for testing but is not recommended for production environments. To add H2 add the following dependency at the comment `<!-- TODO: ADD H2 database dependency here -->` in the local profile.
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD H2 database dependency here -->">
         &lt;dependency&gt;
@@ -28,6 +26,7 @@ When testing starting locally or when running test we also need to use a local d
           &lt;scope&gt;runtime&lt;/scope&gt;
         &lt;/dependency&gt;</pre>
 
+If Spring Boot sees a database like H2 on the classpath it will automatically configure an in-memory one for us as well as all the connection Beans necessary to connect to it. We've chosen to override these settings in the ``application-local.properties``{{open}} file to demonstrate that you can interact with Spring Boot's auto-configuration quite easily.
 
 **2. Create an Entity class**
 
