@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Spring Boot Database Access on RHOAR",
   "icon": "fa-openshift",
-  "title": "Spring Boot Database Access on OpenShift",
+  "title": "Spring Boot Database Access on RHOAR",
   "description": "In this scenario you will learn more about Spring Boot's Database Access functionality and how this plays into Red Hat OpenShift Application Runtimes.",
   "difficulty": "beginner",
   "time": "15 minutes",
