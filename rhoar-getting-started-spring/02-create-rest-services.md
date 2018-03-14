@@ -1,11 +1,12 @@
 # Create REST services for the fruit web application
 
+RESTful web services are one of the core use cases for the Spring Boot framework as Spring makes it very easy to create HTTP APIs serving a variety of data types. For this scenario we will be building a RESTful JSON API.
 
 **1. Add a service**
 
-First, we need to create the java class file. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/java/com/example/service/FruitController.java``{{open}}
+First, we need to create a Controller. Controllers are the **C** in the MVC pattern which mediate between our views and our internal models / business logic. Here we need to create a Spring `@RestController` annotated Java class. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitController.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to editor` button):
+Then, copy the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="replace">
 package com.example.service;
@@ -19,7 +20,7 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,30 +31,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@Controller
+@RestController
 @RequestMapping(value = "/api/fruits")
 public class FruitController {
 
-    private final FruitRepository repository;
-
-    @Autowired
-    public FruitController(FruitRepository repository) {
-        this.repository = repository;
-    }
-
-    @ResponseBody
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     public List<Fruit> getAll() {
-        return StreamSupport
-                .stream(repository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+        return Arrays.asList(
+            new Fruit()
+        );
     }
 
 //TODO: Add additional service calls here
 }
 </pre>
 
-Take a minute and review the `FruitController`. At this stage is pretty simple and only has one method that exposes an endpoint for HTTP GET request for path `/api/fruits`, as specified in the class annotation `@RequestMapping(value = "/api/fruits")`. We should now be able to see a list of fruits on the web page.
+The `@RestController` annotation tells Spring that this is a special kind of Controller meant to be returning data (not views) when called. If we used the standard Spring `@Controller` annotation instead we would have to also annotate the `getAll()` method (and any other API methods for that matter) with the `@ResponseBody` annotation. `@RestController` implies the `@ResponseBody` annotation for us so we don't have to type it every time!
+
+Normally you would be wiring in Repositories or Services to do actual business logic. We cover these topics in subsequent modules.
 
 **2. Test the service from a web browser locally**
 

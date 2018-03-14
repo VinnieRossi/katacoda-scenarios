@@ -53,7 +53,7 @@ Notice that we are not using the default BOM (Bill of material) that Spring Boot
 
 **1. Adding Apache Tomcat to the application**
 
-Since our application will be a web application we need to use a servlet container like Apache Tomcat or Undertow. Since Red Hat offers support for Apache Tomcat (e.g., security patches, bug fixes, etc.) we will use it here. 
+Since our application will be a web application we need to use a servlet container like Apache Tomcat or Undertow to handle incoming connections from clients. Since Red Hat offers support for Apache Tomcat (e.g., security patches, bug fixes, etc.) we will use it here. 
 
 >**NOTE:** Undertow is another an open source project that is maintained by Red Hat and therefore Red Hat plans to add support for Undertow shortly.
 
@@ -92,7 +92,7 @@ You should now see an HTML page that looks like this:
 
 ![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-spring/web-page.png)
 
-As you can probably guess by now the application we are building is a Fruit repository where we create, read, update and delete different kinds of fruits.
+As you can probably guess by now the application we are building is a Fruit repository where we perform various operations on different kinds of fruits.
 
 >**NOTE:** None of the buttons work at this stage since we haven't implemented services for them yet.
 
@@ -105,5 +105,3 @@ Before moving on, click in the terminal window and then press **CTRL-C** to stop
 You have now successfully executed the first step in this scenario. 
 
 Now you've seen how to get started with Spring Boot development on Red Hat OpenShift Application Runtimes.
-
-In next step of this scenario we will add the logic to be able to read a list of fruits from the database.
