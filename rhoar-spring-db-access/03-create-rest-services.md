@@ -30,8 +30,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(value = "/api/fruits")
+@RestController
+@RequestMapping("/api/fruits")
 public class FruitController {
 
     private final FruitRepository repository;
