@@ -146,6 +146,8 @@ When the console reports that Spring is up and running access the web page by ei
 
 ![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
+Press **CTRL+C** to stop the application.
+
 ## Congratulations
 
 You have now learned how to how to create REST Services that access a database. 
