@@ -170,7 +170,7 @@ public class ApplicationTest {
 
     @Test
     public void createAndDeleteAFruit() {
-        int orangeId = fruitRepository.save(new Fruit("Orange")).getId();
+        Long orangeId = fruitRepository.save(new Fruit("Orange")).getId();
         Fruit orange = fruitRepository.findOne(orangeId);
         assertTrue(orange != null);
 
