@@ -111,7 +111,7 @@ Add the following methods to the Fruit Controller at the TODO marker.
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Integer id) {
+    public void delete(@PathVariable("id") Long id) {
         verifyFruitExists(id);
         repository.delete(id);
     }
