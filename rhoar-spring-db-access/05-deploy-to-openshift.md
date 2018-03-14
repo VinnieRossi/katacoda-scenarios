@@ -23,11 +23,11 @@ As you can see that file specifies a couple of elements that are needed for our 
 
 Now, review the ``src/main/resources/application-openshift.properties``{{open}}
 
-In this file, we are using the configuration from the `deployment.yml` to read username, password, and other connection details. 
+In this file we are using the configuration from the `deployment.yml` to read the username, password, and other connection details. 
 
 **3. Add the PostgreSQL database driver**
 
-So far our application has only used the H2 Database, we now need to add a dependency for PostgreSQL driver. We do that by adding a runtime dependency under the `openshift` profile in ``pom.xml``{{open}}.
+So far our application has only used the H2 embedded Database. We now need to add a dependency for the PostgreSQL driver. We do that by adding a runtime dependency under the `openshift` profile in the ``pom.xml``{{open}} file.
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD PostgreSQL database dependency here -->">
         &lt;dependency&gt;
@@ -56,13 +56,13 @@ Run the following command to deploy the application to OpenShift
 
 ``mvn package fabric8:deploy -Popenshift -DskipTests``{{execute}}
 
-After the maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
+After the Maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
 
 ``oc rollout status dc/fruits``{{execute}}
 
-Then either go to the openshift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Then either go to the OpenShift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
-Make sure that you can add, edit, and remove fruits, using the web application 
+Make sure that you can add, edit, and remove fruits, using the web application.
 
 ## Congratulations
 
