@@ -2,9 +2,50 @@
 
 RESTful web services are one of the core use cases for the Spring Boot framework as Spring makes it very easy to create HTTP APIs serving a variety of data types. For this scenario we will be building a RESTful JSON API.
 
-**1. Add a service**
+**1. Create a Model**
 
-First, we need to create a Controller. Controllers are the **C** in the MVC pattern which mediate between our views and our internal models / business logic. Here we need to create a Spring `@RestController` annotated Java class. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitController.java``{{open}}
+First we need to create a Java class file that will model our Fruit objects. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
+
+Then, copy the below content into the file (or use the `Copy to Editor` button):
+
+<pre class="file" data-filename="src/main/java/com/example/service/Fruit.java" data-target="replace">
+package com.example.service;
+
+public class Fruit {
+
+    private Integer id;
+    private String name;
+
+    public Fruit() {
+    }
+
+    public Fruit(String type) {
+        this.name = type;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</pre>
+
+As you can see this is a Plain-Old-Java-Object (POJO). Nothing fancy here yet!
+
+**2. Add a REST Controller**
+
+To make these models available to our application we need to create a Spring Controller. Controllers are the **C** in the MVC pattern which mediate between our views and our internal models / business logic. Here we need to create a Spring `@RestController` annotated Java class. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitController.java``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to Editor` button):
 
@@ -12,24 +53,11 @@ Then, copy the below content into the file (or use the `Copy to Editor` button):
 package com.example.service;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Spliterator;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.Arrays;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.RestController;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RestController
 @RequestMapping(value = "/api/fruits")
@@ -38,7 +66,7 @@ public class FruitController {
     @GetMapping
     public List<Fruit> getAll() {
         return Arrays.asList(
-            new Fruit()
+            new Fruit("Apple"), new Fruit("Orange")
         );
     }
 
