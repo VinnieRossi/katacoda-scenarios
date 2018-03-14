@@ -19,13 +19,19 @@ Run the following command to deploy the application to OpenShift
 
 ``mvn package fabric8:deploy -Popenshift``{{execute}}
 
+There's a lot that happens here so lets break it down:
+
+The `mvn package` piece of the above command instructs Maven to run the package lifecycle. This builds a Spring Boot JAR file which is a Fat Jar containing all dependencies necessary to run our application.
+
+For the deployment to OpenShift we are using the [Fabric8](TODO) tool through the `fabric8-maven-plugin` which is configured in our ``pom.xml``{{open}} (found in the `<profiles/>` section). 
+
 After the Maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
 
 ``oc rollout status dc/fruits``{{execute}}
 
-Then either go to the openshift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+You should see output in the console similar to `replication controller "fruits-1" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
-Make sure that you can add, edit, and remove fruits, using the web application 
+You should see the web application with two fruits listed. The buttons still do not work because we didn't implement those functionalities but you should still see them.
 
 ## Congratulations
 

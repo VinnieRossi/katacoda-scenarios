@@ -27,7 +27,7 @@ For this scenario, let's create a project that you will use to house your applic
 
 OpenShift ships with a web-based console that will allow users to
 perform various tasks via a browser. To get a feel for how the web console
-works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab.
+works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab. The login credentials are the ones used in the `oc login` command: developer/developer
 
 ![OpenShift Console Tab](../../assets/middleware/rhoar-getting-started-spring/openshift-console-tab.png)
 
