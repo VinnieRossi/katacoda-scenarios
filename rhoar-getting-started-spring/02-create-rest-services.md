@@ -57,7 +57,7 @@ public class FruitController {
     @GetMapping
     public List<Fruit> getAll() {
         return Arrays.asList(
-            new Fruit("Apple"), new Fruit("Orange")
+            new Fruit("Cherry"), new Fruit("Apple"), new Fruit("Banana")
         );
     }
 
@@ -89,7 +89,7 @@ If everything works the web page should look something like this:
 Now if you navigate to [the new REST API](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/api/fruits) you should see something like this in your browser:
 
 ```json
-[{name":"Apple"},{name":"Orange"}]
+[{name":"Cherry"},{name":"Apple"},{name":"Banana"}]
 ```
 
 Spring automatically serialized our Fruit models to JSON, created the appropriate HTTP header for clients, and returned that JSON to the client!
