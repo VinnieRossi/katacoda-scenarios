@@ -41,10 +41,9 @@ public class FruitController {
         this.repository = repository;
     }
 
-    @ResponseBody
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     public List<Fruit> getAll() {
-        return repository.findAll();
+        return StreamSupport.stream(repository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
 //TODO: Add additional service calls here
