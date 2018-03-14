@@ -49,7 +49,7 @@ public class Fruit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -60,11 +60,11 @@ public class Fruit {
         this.name = type;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -153,33 +153,34 @@ public class ApplicationTest {
     
     @Test
     public void getOne() {
-      assertTrue(fruitRepository.findOne(1)!=null);
+      assertTrue(fruitRepository.findOne(1L) != null);
     }
 
     @Test
     public void updateAFruit() {
-        Fruit apple = fruitRepository.findOne(2);
-        assertTrue(apple!=null);
+        Fruit apple = fruitRepository.findOne(2L);
+        assertTrue(apple != null);
         assertTrue(apple.getName().equals("Apple"));
         
         apple.setName("Green Apple");
         fruitRepository.save(apple);
         
-        assertTrue(fruitRepository.findOne(2).getName().equals("Green Apple"));
+        assertTrue(fruitRepository.findOne(2L).getName().equals("Green Apple"));
     }
 
     @Test
     public void createAndDeleteAFruit() {
         int orangeId = fruitRepository.save(new Fruit("Orange")).getId();
         Fruit orange = fruitRepository.findOne(orangeId);
-        assertTrue(orange!=null);
+        assertTrue(orange != null);
+        
         fruitRepository.delete(orange);
-        assertTrue(fruitRepository.findOne(orangeId)==null);
+        assertTrue(fruitRepository.findOne(orangeId) == null);
     }
 
     @Test
     public void getWrongId() {
-      assertTrue(fruitRepository.findOne(9999)==null);
+      assertTrue(fruitRepository.findOne(9999L) == null);
     }
 }
 </pre>
