@@ -13,7 +13,6 @@ package com.example.service;
 
 public class Fruit {
 
-    private Integer id;
     private String name;
 
     public Fruit() {
@@ -21,14 +20,6 @@ public class Fruit {
 
     public Fruit(String type) {
         this.name = type;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -82,9 +73,9 @@ Normally you would be wiring in Repositories or Services to do actual business l
 
 Run the application by executing the below command:
 
-``mvn spring-boot:run -DskipTests``{{execute}}
+``mvn spring-boot:run``{{execute}}
 
->**NOTE:** We skip the tests to speed up the start and since we do not have any tests for the REST service. Please note that the `spring-boot-crud-booster` [here](https://github.com/snowdrop/spring-boot-crud-booster) has test cases for REST, please review them if interested. 
+>**NOTE:** The `spring-boot-crud-booster` [here](https://github.com/snowdrop/spring-boot-crud-booster) has test cases for REST that you can review if interested. 
 
 In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
 
@@ -96,81 +87,20 @@ If everything works the web page should look something like this:
 
 ![Fruit List](../../assets/middleware/rhoar-getting-started-spring/fruit-list.png)
 
+Now if you navigate to [the new REST API](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/api/fruits) you should see something like this in your browser:
+
+```json
+[{name":"Apple"},{name":"Orange"}]
+```
+
+Spring automatically serialized our Fruit models to JSON, created the appropriate HTTP header for clients, and returned that JSON to the client!
+
+>**NOTE:** JSON is not the only Media Type supported in Spring Boot. JSON is simply the default chosen by the framework.
+
 Press **CTRL+C** to stop the application.
-
-**3. Create additional service for update, create and delete**
-
-Add the following methods to the Fruit Controller at the TODO marker.
-
-<pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="//TODO: Add additional service calls here">
-    @ResponseBody
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Fruit post(@RequestBody(required = false) Fruit fruit) {
-        verifyCorrectPayload(fruit);
-
-        return repository.save(fruit);
-    }
-
-    @ResponseBody
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Fruit get(@PathVariable("id") Integer id) {
-        verifyFruitExists(id);
-
-        return repository.findOne(id);
-    }
-
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Fruit put(@PathVariable("id") Integer id, @RequestBody(required = false) Fruit fruit) {
-        verifyFruitExists(id);
-        verifyCorrectPayload(fruit);
-
-        fruit.setId(id);
-        return repository.save(fruit);
-    }
-
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Integer id) {
-        verifyFruitExists(id);
-
-        repository.delete(id);
-    }
-
-    private void verifyFruitExists(Integer id) {
-        if (!repository.exists(id)) {
-            throw new RuntimeException(String.format("Fruit with id=%d was not found", id));
-        }
-    }
-
-    private void verifyCorrectPayload(Fruit fruit) {
-        if (Objects.isNull(fruit)) {
-            throw new RuntimeException("Fruit cannot be null");
-        }
-
-        if (!Objects.isNull(fruit.getId())) {
-            throw new RuntimeException("Id field must be generated");
-        }
-    }
-</pre>
-
-
-**5. Run and verify**
-
-Build and start the application again
-
-``mvn spring-boot:run -DskipTests``{{execute}}
-
-Now that we have implemented all the services we are now able to see fruits on the page, and also update, create and delete them.
-
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
-
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
 ## Congratulations
 
-You have now learned how to how to create REST Services that access a database. 
+You have now learned how to how to create RESTful Web APIs with Spring Boot! 
 
-In next step of this scenario, you will learn how to access and login to your openshift environment. 
+In next step of this scenario, you will learn how to access and login to your OpenShift environment. 
