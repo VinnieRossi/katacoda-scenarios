@@ -148,12 +148,12 @@ public class ApplicationTest {
 
     @Test
     public void testGetAll() {
-      assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown()==3);
+        assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown()==3);
     }
     
     @Test
     public void getOne() {
-      assertTrue(fruitRepository.findOne(1L) != null);
+        assertTrue(fruitRepository.findOne(1L) != null);
     }
 
     @Test
@@ -173,14 +173,14 @@ public class ApplicationTest {
         int orangeId = fruitRepository.save(new Fruit("Orange")).getId();
         Fruit orange = fruitRepository.findOne(orangeId);
         assertTrue(orange != null);
-        
+
         fruitRepository.delete(orange);
         assertTrue(fruitRepository.findOne(orangeId) == null);
     }
 
     @Test
     public void getWrongId() {
-      assertTrue(fruitRepository.findOne(9999L) == null);
+        assertTrue(fruitRepository.findOne(9999L) == null);
     }
 }
 </pre>
