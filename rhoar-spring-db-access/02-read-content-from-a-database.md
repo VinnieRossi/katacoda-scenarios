@@ -78,10 +78,11 @@ public class Fruit {
 }
 </pre>
 
+The `@Entity` annotation marks the object as a persistable Entity for Spring Data. The `@Id` and `@GeneratedValue` annotations are Spring Data annotations which mark the the `id` field as the database ID field which has an auto-generated value.
 
- **3.Create a repository class for our content**
+**3.Create a repository class for our content**
 
-The repository should provide with methods for insert, update, select and delete Fruits from the database. We are going to use Spring Data for this which already provides us with a lot of the boilerplate code, so all we have to do is to add an interface that extends the `CrudRepository<Fruit, Integer>` interface provided by Spring Data.
+The repository should provide methods for inserting, updating, reading, and deleting Fruits from the database. We are going to use Spring Data for this which already provides us with a lot of the boilerplate code, so all we have to do is to add an interface that extends the `CrudRepository<Fruit, Integer>` interface provided by Spring Data.
 
 First, we need to create the java class file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}}
 
