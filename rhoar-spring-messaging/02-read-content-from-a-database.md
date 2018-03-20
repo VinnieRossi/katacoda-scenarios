@@ -110,7 +110,7 @@ public interface FruitRepository extends CrudRepository&lt;Fruit, Long&gt; {
 
 To pre-populate the database with content, Hibernate offers a nifty feature where we can provide an SQL file that populates the content.
 
-First, we need to create the SQL  file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/resources/import.sql``{{open}}
+First, we need to create the SQL file. For that, you need to click on the following link which opens the empty file in the editor: ``src/main/resources/import.sql``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to editor` button):
 
@@ -121,7 +121,7 @@ insert into fruit (name) values ('Banana');
 </pre>
 
 **5. Add a test class**
-To verifies that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
+To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
 
 First, we need to create the java class file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/test/java/com/example/ApplicationTest.java``{{open}}
 
