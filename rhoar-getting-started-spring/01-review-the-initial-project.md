@@ -19,8 +19,7 @@ The output should look something like this:
         |   `-- com
         |       `-- example
         |           |-- Application.java
-        |           `-- booster
-        |               `-- service
+        |           `-- service
         `-- resources
             |-- application-local.properties
             |-- application-openshift.properties
