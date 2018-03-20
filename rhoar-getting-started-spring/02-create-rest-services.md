@@ -4,7 +4,7 @@ RESTful web services are one of the core use cases for the Spring Boot framework
 
 **1. Create a Model**
 
-First we need to create a Java class file that will model our Fruit objects. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
+First we need to create a Java class file that will model our Fruit objects. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to Editor` button):
 
