@@ -39,16 +39,16 @@ Then, copy the below content into the file (or use the `Copy to editor` button):
 <pre class="file" data-filename="src/main/java/com/example/service/Fruit.java" data-target="replace">
 package com.example.service;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 public class Fruit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
     private String name;
@@ -75,14 +75,23 @@ public class Fruit {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Fruit{ name='" + name + '\'' + " }";
+    }
 }
 </pre>
 
-The `@Entity` annotation marks the object as a persistable Entity for Spring Data. The `@Id` and `@GeneratedValue` annotations are Spring Data annotations which mark the the `id` field as the database ID field which has an auto-generated value.
+To reduce the amount of code we have to write we are chosing to use this model for REST responses, Database objects, and Message objects. Normally you would separate these objects as you may have data only necessary for one particular use case.
+
+The `@Entity` annotation marks the object as a persistable Entity for Spring Data. The `@Id` and `@GeneratedValue` annotations are Spring Data annotations which mark the the `id` field as the database ID field which has an auto-generated value. 
+
+The `@JsonIgnore` annotation is a Jackson annotation which marks the `id` field to be ignored when the object is serialized to JSON. Jackson is the default JSON utility in Spring Boot that will be used automatically by Controllers returning JSON. Normally we do not have to use any Jackson annotations on our objects if we want one-to-one serialization (i.e all fields in the object should appear in the serialized JSON text and vice-a-versa). In this case we do not want the `id` field to show up in the JSON output so we add the `@JsonIgnore` annotation.
 
 **3.Create a repository class for our content**
 
-The repository should provide methods for inserting, updating, reading, and deleting Fruits from the database. We are going to use Spring Data for this which already provides us with a lot of the boilerplate code, so all we have to do is to add an interface that extends the `CrudRepository<T, I>` interface provided by Spring Data.
+Repositories typically provide methods for inserting, updating, reading, and deleting from the database. We are going to use Spring Data for this which already provides us with a lot of the boilerplate code, so all we have to do is to add an interface that extends the `CrudRepository<T, I>` interface provided by Spring Data.
 
 First, we need to create the java class file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}}
 
