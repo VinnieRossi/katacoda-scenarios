@@ -33,7 +33,7 @@ If Spring Boot sees a database like H2 on the classpath it will automatically co
 
 We are going to implement an Entity class that represents a fruit. This class is used to map our object to a database schema.
 
-First, we need to create the java class file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
+First, we need to create the java class file. For that, you need to click on the following link which opens the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to editor` button):
 
@@ -79,13 +79,13 @@ public class Fruit {
 }
 </pre>
 
-The `@Entity` annotation marks the object as a persistable Entity for Spring Data. The `@Id` and `@GeneratedValue` annotations are Spring Data annotations which mark the the `id` field as the database ID field which has an auto-generated value.
+The `@Entity` annotation marks the object as a persistable Entity for Spring Data. The `@Id` and `@GeneratedValue` annotations are JPA annotations which mark the the `id` field as the database ID field which has an auto-generated value. Spring provides the code which makes these annotations work behind the scenes.
 
 **3.Create a repository class for our content**
 
 The repository should provide methods for inserting, updating, reading, and deleting Fruits from the database. We are going to use Spring Data for this which already provides us with a lot of the boilerplate code, so all we have to do is to add an interface that extends the `CrudRepository<T, I>` interface provided by Spring Data.
 
-First, we need to create the java class file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}}
+First, we need to create the java class file. For that, you need to click on the following link which opens the empty file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to Editor` button):
 
@@ -102,7 +102,7 @@ public interface FruitRepository extends CrudRepository&lt;Fruit, Long&gt; {
 
 To pre-populate the database with content, Hibernate offers a nifty feature where we can provide an SQL file that populates the content.
 
-First, we need to create the SQL  file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/resources/import.sql``{{open}}
+First, we need to create the SQL  file. For that, you need to click on the following link which opens the empty file in the editor: ``src/main/resources/import.sql``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to editor` button):
 
@@ -115,7 +115,7 @@ insert into fruit (name) values ('Banana');
 **5. Add a test class**
 To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
 
-First, we need to create the java class file. For that, you need to click on the following link, which opens the empty file in the editor: ``src/test/java/com/example/ApplicationTest.java``{{open}}
+First, we need to create the java class file. For that, you need to click on the following link which opens the empty file in the editor: ``src/test/java/com/example/ApplicationTest.java``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to editor` button):
 
