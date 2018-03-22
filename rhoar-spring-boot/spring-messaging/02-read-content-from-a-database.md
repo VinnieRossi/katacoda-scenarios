@@ -1,3 +1,5 @@
+TODO transactions with JBoss Transaction Manager
+
 # Read content from a database
 
 In Step 1 you learned how to get started with our project. In this step, we will add functionality for our Fruit basket application to display content from the database.

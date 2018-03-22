@@ -1,0 +1,71 @@
+{
+  "title": "Spring Boot on RHOAR",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "",
+      "course_id": "getting-started-spring",
+      "title": "Getting Started with Spring Boot"
+    },
+    {
+      "external_link": "",
+      "course_id": "spring-boot-s2i",
+      "title": "Packaging Spring Boot Apps for OpenShift",
+      "description": "Using OpenShift's Source 2 Image for Deployment"
+    },
+    {
+      "external_link": "",
+      "course_id": "spring-mvc",
+      "title": "Spring Boot MVC"
+    },
+    {
+      "external_link": "",
+      "course_id": "spring-rest-services",
+      "title": "Spring Boot REST APIs"
+    },
+    {
+      "external_link": "",
+      "course_id": "spring-db-access",
+      "title": "Spring Data with JPA/Hibernate"
+    },
+    {
+      "external_link": "",
+      "course_id": "spring-messaging",
+      "title": "Spring Boot Messaging and JBoss AMQ"
+    },
+    {
+      "external_link": "",
+      "course_id": "spring-arquillian-kube",
+      "title": "Testing with Arquillian Kube"
+    },
+    {
+      "external_link": "",
+      "course_id": "",
+      "title": "Spring Boot Microservices on RHOAR 1",
+      "description": "Externalized Configuration and Health Checks"
+    },
+    {
+      "external_link": "",
+      "course_id": "",
+      "title": "Spring Boot Microservices on RHOAR 2",
+      "description": "Service Discovery and Load Balancing"
+    },
+    {
+      "external_link": "",
+      "course_id": "",
+      "title": "Spring Boot Microservices on RHOAR 3",
+      "description": "Circuit Breaking"
+    },
+    {
+      "external_link": "",
+      "course_id": "",
+      "title": "Monitoring in OpenShift with Spring Boot Actuator"
+    },
+    {
+      "external_link": "",
+      "course_id": "",
+      "title": "Spring Boot Security and JBoss Keycloak"
+    },
+  ]
+}
