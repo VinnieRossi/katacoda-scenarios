@@ -118,6 +118,8 @@ insert into fruit (name) values ('Apple');
 insert into fruit (name) values ('Banana');
 </pre>
 
+>**NOTE:** It is typically not advisable to use this feature in Production as you are not guaranteed to have a clean slate for your database on new deployments. You should instead look into using Database Migration tools. Spring Boot provides a number of integration options but these are outside the scope of this module.
+
 **5. Add a test class**
 To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
 
@@ -156,7 +158,7 @@ public class ApplicationTest {
 
     @Test
     public void testGetAll() {
-        assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown()==3);
+        assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown() == 3);
     }
     
     @Test

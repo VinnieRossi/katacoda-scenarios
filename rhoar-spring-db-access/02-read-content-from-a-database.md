@@ -150,7 +150,7 @@ public class ApplicationTest {
 
     @Test
     public void testGetAll() {
-        assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown()==3);
+        assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown() == 3);
     }
     
     @Test
