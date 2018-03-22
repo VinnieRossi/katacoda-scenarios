@@ -195,7 +195,7 @@ public class ApplicationTest {
 }
 </pre>
 
-Take a bit of time and review the tests. The `testGetAll` test will return all fruits in the repository, which should be three because of what the content in `import.sql`. The `getOne` test will retrieve the fruit with id 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` check that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository return null.
+Take a bit of time and review the tests. The `testGetAll` test will return all fruits in the repository, which should be three because of the content in `import.sql`. The `getOne` test will retrieve the fruit with id 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` checks that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository returns null.
 
 **5. Run and verify**
 
