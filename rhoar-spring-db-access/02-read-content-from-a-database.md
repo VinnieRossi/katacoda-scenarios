@@ -4,7 +4,7 @@ In Step 1 you learned how to get started with our project. In this step, we will
 
 **1. Adding JPA (Hibernate) to the application**
 
-Since our application will need to access a database to retrieve and store fruit entries we need to add a Database Connection library. One such implementation in Spring Boot is the Spring Data project which contains the Java Persistence APIs (JPA) and a JPA implementation - Hibernate. Hibernate been tested and verified as part of the OpenShift Application Runtimes so we are going to use it here.
+Since our application will need to access a database to retrieve and store fruit entries we need to add a Database Connection library. One such implementation in Spring is the Spring Data project which contains the Java Persistence APIs (JPA) and a JPA implementation - Hibernate. Hibernate been tested and verified as part of the OpenShift Application Runtimes so we are going to use it here. Spring Boot has full knowledge of these libraries as well so we get to take advantage of Spring Boot's auto-configuration with these libraries as well!
 
 >**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in OpenShift Application Runtimes. 
 
