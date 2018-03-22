@@ -55,7 +55,7 @@ public class FruitController {
 The `@Controller` annotation tells Spring that this class is a HTTP Controller and the `@RequestMapping` annotation identifies it as a Controller meant to handle requests to the `/api/fruits` URI. Here we have two kinds of responses. The `getAll()` method returns a JSON list of all Fruits we have stored in our Database.
 The `createFruit()` method triggers a save to the Database for a new fruit and then returns a *redirect* to the root view (the main page of our application in this case). This redirect is a convenience action we will describe later.
 
-It is worth noting that there is also a second annotation that exists: `@RestController`. This annotation is a convenience annotation for Controllers who only return data and not views. It removes the need to annotate your data-returning methods with the `@ResponseBody` annotation. Since we return both data and views in this Controller, however, we use the standard `@Controller`.
+It is worth noting that there is also a second annotation that exists for creating controller classes: `@RestController`. This annotation is a convenience annotation for Controllers who only return data, not views. It removes the need to annotate your data-returning methods with the `@ResponseBody` annotation (like we did with the `getAll()` method). Since we return both data and views in this Controller, however, we use the standard `@Controller` annotation.
 
 **2. Test the service from a web browser locally**
 
