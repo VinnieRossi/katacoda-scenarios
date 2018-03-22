@@ -17,7 +17,7 @@ To add Spring Data + JPA and Hibernate to our project all we have to do is to ad
     &lt;/dependency&gt;
 </pre>
 
-We also need a Database to actually interact with. When running locally or when running tests an in-memory Database is often used over connection to an external Database because its lifecyle can be managed by Spring and we don't have to worry about outages. H2 is a small in-memory database that is perfect for testing but is not recommended for production environments. To add H2 add the following dependency at the comment `<!-- TODO: ADD H2 database dependency here -->` in the local profile.
+We also need a Database to actually interact with. When running locally or when running tests an in-memory Database is often used over connection to an external Database because its lifecyle can be managed by Spring and we don't have to worry about outages. H2 is a small in-memory database that is perfect for testing but is not recommended for production environments. To add H2 add the following dependency at the comment `<!-- TODO: ADD H2 database dependency here -->` in the local profile section of the `pom.xml`.
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD H2 database dependency here -->">
     &lt;dependency&gt;
@@ -27,7 +27,9 @@ We also need a Database to actually interact with. When running locally or when 
     &lt;/dependency&gt;
 </pre>
 
-If Spring Boot sees a database like H2 on the classpath it will automatically configure an in-memory one for us as well as all the connection Beans necessary to connect to it. We've chosen to override these settings in the ``application-local.properties``{{open}} file to demonstrate that you can interact with Spring Boot's auto-configuration quite easily. 
+We add H2 to a Maven profile to ensure that it is available for local running and testing but _not_ in OpenShift.
+
+If Spring Boot sees a database like H2 on the classpath it will automatically configure the connection code necessary to use it. We've chosen to override a couple of these settings in the ``application-local.properties``{{open}} file to demonstrate that you can interact with Spring Boot's auto-configuration quite easily. 
 
 **2. Create an Entity class**
 
@@ -213,6 +215,7 @@ Results :
 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 ```
 
+>**NOTE:** As a reminder: the configuration for database connectivity is found in the application properties files in `src/main/resources/`{{open}} since we chose to override the Spring Boot defaults. For local we use the `application-local.properties` file. On OpenShift we use the `application-openshift.properties` file.
 
 ## Congratulations
 

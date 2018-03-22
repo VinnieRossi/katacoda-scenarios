@@ -204,7 +204,7 @@ Results :
 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 ```
 
->**NOTE:** You may be wondering how Spring Boot knows which database to connect to without configuration code. The configurations are found in the application properties files in `src/main/resources/`{{open}}. For local we use the `application-local.properties` file. On OpenShift we use the `application-openshift.properties` file.
+>**NOTE:** As a reminder: the configuration for database connectivity is found in the application properties files in `src/main/resources/`{{open}} since we chose to override the Spring Boot defaults. For local we use the `application-local.properties` file. On OpenShift we use the `application-openshift.properties` file.
 
 ## Congratulations
 
