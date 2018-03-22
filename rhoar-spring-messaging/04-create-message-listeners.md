@@ -81,7 +81,7 @@ The single Bean in this class is our `MessageConverter`. Spring Boot uses this c
 
 **3. Revisit the Controller**
 
-In the last section we prepared our controller with the following lines:
+In the last section we added a dependency to our `FruitsController` class for a class called `JmsTemplate`. If you re-open ``src/main/java/com/example/service/FruitController.java``{{open}} you can see this snippet near the top:
 
 ```java
 private FruitRepository repository;
@@ -94,9 +94,17 @@ public FruitController(FruitRepository repository, JmsTemplate jmsTemplate) {
 }
 ```
 
-This setup injects and instance of a `JmsTemplate` into the Controller. The `JmsTemplate` class is the primary abstraction we will use to send Messages to JMS Destinations using Spring.
+This setup injects and instance of a `JmsTemplate` into the Controller. As the name implies: the `JmsTemplate` class is the primary abstraction we will use to send Messages to JMS Destinations using Spring. With the `JmsTemplate` we can send messages to Queues asynchronously. When a `MessageConverter` is registered (like the Jackson Converter we covered earlier) the `JmsTemplate` will also automatically serialize our Java Objects for us!
 
-**2. Test the service from a web browser locally**
+We left a TODO in the `createFruit()` method for sending said JMS Message. Copy the below content into the method at that TODO (or use the `Copy to Editor` button):
+
+<pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="// TODO JMS Message send here">
+jmsTemplate.convertAndSend("fruitMailbox", fruit);
+</pre>
+
+This one line of code will serialize our `Fruit` input to a JSON string and send that JSON to the `fruitMailbox` JMS Queue _asynchronously_. Note that the String here _must match_ the String we supplied to the `@JmsListener(destination = STRING_HERE)` annotation from our Receiver. While these Queue names are generally kept in configuration files we hard-code them here for simplicity.
+
+**4. Test the service from a web browser locally**
 
 Run the application by executing the below command:
 
@@ -112,15 +120,9 @@ If everything works the web page should look something like this:
 
 ![Fruit List](../assets/middleware/rhoar-getting-started-spring/fruit-list.png)
 
-Now if you navigate to [the new REST API](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/api/fruits) you should see something like this in your browser:
+Now that we have implemented the `createFruit()` function try typing a new Fruit into the `Add a Fruit` text box and click the `Save` button. The page should automatically refresh however the new Fruit may or may not show up immediately. If it doesn't simply refresh the page again. But _why does that happen_?
 
-```json
-[{name":"Cherry"},{name":"Apple"},{name":"Banana"}]
-```
-
-Spring automatically serialized our Fruit models to JSON, created the appropriate HTTP header for clients, and returned that JSON to the client!
-
->**NOTE:** JSON is not the only Media Type supported in Spring Boot. JSON is simply the default chosen by the framework.
+Recall that we said that the `jmsTemplate.convertAndSend()` method was *asynchronous*. This means that the code in our controller will not wait for the `convertAndSend()` method to complete before moving on and returning the redirect to the user. If this happens before the `convertAndSend()` method completes it will look like it didn't work. A quick refresh can show us it actually did. In more complex applications the web application would be responding to events when the Message is actually sent but this is out of scope for this scenario.
 
 Press **CTRL+C** to stop the application.
 
