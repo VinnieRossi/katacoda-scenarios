@@ -20,11 +20,12 @@ To add Spring Data + JPA and Hibernate to our project all we have to do is to ad
 We also need a Database to actually interact with. When running locally or when running tests an in-memory Database is often used over connection to an external Database because its lifecyle can be managed by Spring and we don't have to worry about outages. H2 is a small in-memory database that is perfect for testing but is not recommended for production environments. To add H2 add the following dependency at the comment `<!-- TODO: ADD H2 database dependency here -->` in the local profile.
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD H2 database dependency here -->">
-        &lt;dependency&gt;
-          &lt;groupId&gt;com.h2database&lt;/groupId&gt;
-          &lt;artifactId&gt;h2&lt;/artifactId&gt;
-          &lt;scope&gt;runtime&lt;/scope&gt;
-        &lt;/dependency&gt;</pre>
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+      &lt;artifactId&gt;h2&lt;/artifactId&gt;
+      &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;/dependency&gt;
+</pre>
 
 If Spring Boot sees a database like H2 on the classpath it will automatically configure an in-memory one for us as well as all the connection Beans necessary to connect to it. We've chosen to override these settings in the ``application-local.properties``{{open}} file to demonstrate that you can interact with Spring Boot's auto-configuration quite easily. 
 
@@ -203,6 +204,7 @@ Results :
 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 ```
 
+>**NOTE:** You may be wondering how Spring Boot knows which database to connect to without configuration code. The configurations are found in the application properties files in `src/main/resources/`{{open}}. For local we use the `application-local.properties` file. On OpenShift we use the `application-openshift.properties` file.
 
 ## Congratulations
 
