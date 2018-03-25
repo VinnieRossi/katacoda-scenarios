@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
   "icon": "fa-openshift",
-  "title": "Spring Boot on RHOAR",
+  "title": "Spring Boot MVC on RHOAR",
   "description": "In this scenario you will learn more about Spring MVC on RHOAR",
   "difficulty": "beginner",
   "time": "15 minutes",
