@@ -23,8 +23,7 @@ The output should look something like this:
         `-- resources
             |-- application-local.properties
             |-- application-openshift.properties
-            `-- static
-                `-- index.html
+            `-- templates
 ```
 
 

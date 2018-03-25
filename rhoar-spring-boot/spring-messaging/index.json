@@ -1,5 +1,5 @@
 {
-  "pathwayTitle": "Spring Boot Messaging on RHOAR",
+  "pathwayTitle": "Spring Boot on Red Hat OpenShift Application Runtime",
   "icon": "fa-openshift",
   "title": "Spring Boot Messaging on RHOAR",
   "description": "In this scenario you will learn more about Spring Boot's Queue Messaging functionality and how this plays into Red Hat OpenShift Application Runtimes.",
