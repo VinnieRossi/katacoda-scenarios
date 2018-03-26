@@ -98,8 +98,6 @@ You should now see an HTML page that looks like this:
 
 As you can probably guess by now the application we are building is a Fruit repository where we perform various operations on different kinds of fruits.
 
->**NOTE:** None of the buttons work at this stage since we haven't implemented services for them yet.
-
 **4. Stop the application**
 
 Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
