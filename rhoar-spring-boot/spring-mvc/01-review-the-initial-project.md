@@ -104,6 +104,4 @@ Before moving on, click in the terminal window and then press **CTRL-C** to stop
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. 
-
-Now you've seen how to get started with Spring Boot development on Red Hat OpenShift Application Runtimes.
+Now you've seen how to get started with Spring Boot development on Red Hat OpenShift Application Runtimes. In the next step you will create the Model and Controller portions of the web application.

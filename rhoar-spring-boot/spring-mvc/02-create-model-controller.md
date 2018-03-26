@@ -122,6 +122,4 @@ If you add a Fruit name to the text box and click save it should now appear on t
 
 ## Congratulations
 
-You have now learned how to how to create RESTful Web APIs with Spring Boot! 
-
-In next step of this scenario, you will learn how to access and login to your OpenShift environment. 
+You have now learned how to how to create simple Spring MVC Controllers and how to connect your Models to the views using a Controller. In the next section we'll review the View we've created for you.
