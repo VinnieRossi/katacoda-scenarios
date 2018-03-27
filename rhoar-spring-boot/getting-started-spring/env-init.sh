@@ -1,1 +1,1 @@
-git clone https://github.com/GetLevvel/rhoar-sample-code.git /root && yum install tree -y
+git clone https://github.com/GetLevvel/rhoar-sample-code.git
