@@ -67,11 +67,11 @@ In the interest of time, we will skip creating test cases for the service and in
 
 When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
-![Local Web Browser Tab](../assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
+![Local Web Browser Tab](../../assetsmiddleware/rhoar-getting-started-spring/web-browser-tab.png)
 
 If everything works the web page should look something like this:
 
-![Fruit List](../assets/middleware/rhoar-getting-started-spring/fruit-list.png)
+![Fruit List](../../assetsmiddleware/rhoar-getting-started-spring/fruit-list.png)
 
 Now if you navigate to [the new REST API](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/api/fruits) you should see something like this in your browser:
 

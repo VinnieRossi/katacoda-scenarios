@@ -114,11 +114,11 @@ In the interest of time, we will skip creating test cases for the service and in
 
 When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
-![Local Web Browser Tab](../assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
+![Local Web Browser Tab](../../assetsmiddleware/rhoar-getting-started-spring/web-browser-tab.png)
 
 If everything works the web page should look something like this:
 
-![Fruit List](../assets/middleware/rhoar-getting-started-spring/fruit-list.png)
+![Fruit List](../../assetsmiddleware/rhoar-getting-started-spring/fruit-list.png)
 
 Now that we have implemented the `createFruit()` function try typing a new Fruit into the `Add a Fruit` text box and click the `Save` button. The page should automatically refresh however the new Fruit may or may not show up immediately. If it doesn't simply refresh the page again. But _why does that happen_?
 
