@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "RHOARSpringBoot",
   "icon": "fa-openshift",
-  "title": "Spring Boot on RHOAR",
+  "title": "Getting Started with Spring Boot on RHOAR",
   "description": "In this scenario you will learn more about Spring Boot, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
   "difficulty": "beginner",
   "time": "15 minutes",
