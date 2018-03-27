@@ -1,2 +1,2 @@
 ~/.launch.sh
-cd /root/projects/rhoar-sample-code/getting-started-spring
+cd /root/rhoar-sample-code/getting-started-spring
