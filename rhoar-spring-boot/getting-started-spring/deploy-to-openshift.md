@@ -27,7 +27,7 @@ For the deployment to OpenShift we are using the [Fabric8](https://fabric8.io/) 
 
 After the Maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
 
-``oc rollout status dc/fruits``{{execute}}
+``oc rollout status dc/getting-started``{{execute}}
 
 You should see output in the console similar to `replication controller "fruits-1" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
