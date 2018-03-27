@@ -1,1 +1,1 @@
-ssh root@host01 "mkdir /root/code && cd /root/code && git clone https://github.com/GetLevvel/rhoar-sample-code.git && yum install tree -y"
+ssh root@client "git clone https://github.com/GetLevvel/rhoar-sample-code.git && yum install tree -y"
