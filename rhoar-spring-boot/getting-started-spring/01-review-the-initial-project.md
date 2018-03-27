@@ -50,15 +50,15 @@ Notice that we are not using the default BOM (Bill of material) that Spring Boot
   </dependencyManagement>
 ```
 
-**1. Adding Apache Tomcat to the application**
+**1. Adding Spring Boot Web to the application**
 
 Since our application will be a web application we need to use a servlet container like Apache Tomcat or Undertow to handle incoming connections from clients. Since Red Hat offers support for Apache Tomcat (e.g., security patches, bug fixes, etc.) we will use it here. 
 
 >**NOTE:** Undertow is another an open source project that is maintained by Red Hat and therefore Red Hat plans to add support for Undertow shortly.
 
-To add Apache Tomcat to our project, add the following lines in the ``pom.xml``{{open}} (If you left the TODO comments in you can click the `Copy to Editor` button to do this automatically)
+To add these dependencies to our project, add the following lines in the ``pom.xml``{{open}} (If you left the TODO comments in you can click the `Copy to Editor` button to do this automatically)
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add web (tomcat) dependency here -->">
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add web dependencies here -->">
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
