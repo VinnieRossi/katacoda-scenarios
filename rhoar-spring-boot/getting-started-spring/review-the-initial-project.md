@@ -19,10 +19,7 @@ The output should look something like this:
         |   `-- com
         |       `-- example
         |           |-- Application.java
-        |           `-- service
         `-- resources
-            |-- application-local.properties
-            |-- application-openshift.properties
             `-- static
                 `-- index.html
 ```
@@ -32,7 +29,7 @@ Except for the `fabric8` directory and the `index.html`, this matches what you w
 
 One thing that differs slightly is the ``pom.xml``{{open}} file.
 
-As you review the content, you will notice that there are a lot of **TODO** comments. **Do not remove them!** These comments are used as markers for later exercises in this scenario. 
+As you review the content, you will notice that there are a couple **TODO** comments. **Do not remove them!** These comments are used as markers for later exercises in this scenario. 
 
 Notice that we are not using the default BOM (Bill of material) that Spring Boot projects typically use. We are using a BOM provided by Red Hat as part of the [Snowdrop](http://snowdrop.me/) project instead. We use this BOM to make sure that we are using only the dependency versions supported by Red Hat.
 
@@ -65,7 +62,7 @@ To add these dependencies to our project, add the following lines in the ``pom.x
     &lt;/dependency&gt;
 </pre>
 
-There are other dependencies brought in by this Spring Starter POM. We will revisit these later in the scenario.
+There are other dependencies brought in by this Spring Starter POM. For this scenario we are mostly focusing on bringing in the necessities for a simple web page. We will dive into this dependency in more detail in the next couple modules.
 
 You may notice that there is no `<version>` tag here. That's because the version numbers are managed and automatically derived by the BOM we included earlier. 
 
@@ -87,13 +84,7 @@ To begin with, click on the **Local Web Browser** tab in the console frame of th
 
 or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
-You should now see an HTML page that looks like this:
-
-![Local Web Browser Tab](../assets/middleware/rhoar-getting-started-spring/web-page.png)
-
-As you can probably guess by now the application we are building is a Fruit repository where we perform various operations on different kinds of fruits.
-
->**NOTE:** None of the buttons work at this stage since we haven't implemented services for them yet.
+You should now see an HTML page with a welcome message. If you see this then you've successfully set up the application! If not check the logs in the terminal. Spring Boot adds a couple helper layers to catch common errors and print helpful messages to the console so check for those first.
 
 **4. Stop the application**
 
@@ -101,6 +92,4 @@ Before moving on, click in the terminal window and then press **CTRL-C** to stop
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. 
-
-Now you've seen how to get started with Spring Boot development on Red Hat OpenShift Application Runtimes.
+You have now successfully executed the first step in this scenario. In the next step we will connect to OpenShift to deploy our application. This example is extremely simple as it is meant to only introduce you to Spring Boot and RHOAR.

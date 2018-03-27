@@ -6,30 +6,29 @@
   "difficulty": "beginner",
   "time": "15 minutes",
   "details": {
-    "steps": [
-      { "title": "Step 1", "text": "01-review-the-initial-project.md" },
-      { "title": "Step 2", "text": "02-create-rest-services.md" },
-      { "title": "Step 3", "text": "03-login-to-openshift.md" },
-      { "title": "Step 4", "text": "04-deploy-to-openshift.md" }
-    ],
     "intro": {
-      "text": "00-intro.md",
+      "text": "intro.md",
       "courseData": "env-init.sh",
       "code": "set-env.sh"
     },
+    "steps": [
+      { "title": "Step 1", "text": "review-the-initial-project.md" },
+      { "title": "Step 2", "text": "create-rest-services.md" },
+      { "title": "Step 3", "text": "login-to-openshift.md" },
+      { "title": "Step 4", "text": "deploy-to-openshift.md" }
+    ],
     "finish": {
-      "text": "99-outro.md"
+      "text": "outro.md"
     }
   },
-  "files": [
-
-  ],
+  "files": [],
   "environment": {
     "showdashboard": true,
     "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
+    "uieditorpath": "/root/code",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
