@@ -1,1 +1,1 @@
-~/.launch.sh
+cd /root/code/getting-started-spring
