@@ -1,5 +1,5 @@
 {
-  "pathwayTitle": "Spring Boot on Red Hat OpenShift Application Runtime",
+  "pathwayTitle": "RHOARSpringBoot",
   "icon": "fa-openshift",
   "title": "Spring Boot Microservices on RHOAR",
   "description": "In this scenario you will learn about how RHOAR makes it easy to deploy Spring Boot Microservices",

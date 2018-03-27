@@ -1,5 +1,5 @@
 {
-  "pathwayTitle": "Spring Boot on Red Hat OpenShift Application Runtime",
+    "pathwayTitle": "RHOARSpringBoot",
   "icon": "fa-openshift",
   "title": "Spring Boot Single Sign-On on RHOAR",
   "description": "In this scenario you will learn more about Spring Boot's Single Sign-On functionality and how this plays into Red Hat OpenShift Application Runtimes.",
