@@ -25,11 +25,11 @@ The `mvn package` piece of the above command instructs Maven to run the package 
 
 For the deployment to OpenShift we are using the [Fabric8](https://fabric8.io/) tool through the `fabric8-maven-plugin` which is configured in our ``pom.xml``{{open}} (found in the `<profiles/>` section). Configuration files for Fabric8 are contained in the ``src/main/fabric8``{{open}} folder mentioned earlier.
 
-After the Maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
+This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify that everything is started by running the following command:
 
 ``oc rollout status dc/getting-started``{{execute}}
 
-You should see output in the console similar to `replication controller "fruits-1" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+You should see output in the console similar to `replication controller "getting-started" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](http://getting-started-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 You should see the web application with two fruits listed. The buttons still do not work because we didn't implement those functionalities but you should still see them.
 
