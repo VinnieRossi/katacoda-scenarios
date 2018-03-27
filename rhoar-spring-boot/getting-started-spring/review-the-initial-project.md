@@ -8,20 +8,26 @@ The output should look something like this:
 
 ```sh
 .
-|-- pom.xml
-`-- src
-    `-- main
-        |-- fabric8
-        |   |-- credentials-secret.yml
-        |   |-- deployment.yml
-        |   `-- route.yml
-        |-- java
-        |   `-- com
-        |       `-- example
-        |           |-- Application.java
-        `-- resources
-            `-- static
-                `-- index.html
+├── pom.xml
+└── src
+    ├── main
+    │   ├── fabric8
+    │   │   ├── deployment.yml
+    │   │   └── route.yml
+    │   ├── java
+    │   │   └── com
+    │   │       └── example
+    │   │           └── Application.java
+    │   └── resources
+    │       └── static
+    │           └── index.html
+    └── test
+        └── java
+            └── com
+                └── example
+                    └── ApplicationTests.java
+
+12 directories, 6 files
 ```
 
 
