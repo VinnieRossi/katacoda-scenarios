@@ -13,9 +13,8 @@
     },
     "steps": [
       { "title": "Step 1", "text": "review-the-initial-project.md" },
-      { "title": "Step 2", "text": "create-rest-services.md" },
-      { "title": "Step 3", "text": "login-to-openshift.md" },
-      { "title": "Step 4", "text": "deploy-to-openshift.md" }
+      { "title": "Step 2", "text": "login-to-openshift.md" },
+      { "title": "Step 3", "text": "deploy-to-openshift.md" }
     ],
     "finish": {
       "text": "outro.md"
