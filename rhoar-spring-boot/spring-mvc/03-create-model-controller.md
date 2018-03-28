@@ -110,7 +110,7 @@ Now we'll add the `@PostMapping` method which will handle input from the Add Fru
     @PostMapping
     public String createFruit(@ModelAttribute Fruit fruit) {
         fruits.add(fruit);
-        return "redirect:/api/fruits";
+        return "redirect:/fruits";
     }
 </pre>
 
