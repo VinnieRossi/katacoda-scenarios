@@ -26,8 +26,6 @@ The output should look something like this:
             └── com
                 └── example
                     └── ApplicationTests.java
-
-12 directories, 6 files
 ```
 
 
