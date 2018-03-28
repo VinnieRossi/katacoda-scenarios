@@ -105,7 +105,7 @@ To pre-populate the database with content, Hibernate offers a nifty feature wher
 
 First, we need to create the SQL  file. For that, you need to click on the following link which opens the empty file in the editor: ``src/main/resources/import.sql``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to editor` button):
+Then, copy the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/resources/import.sql" data-target="replace">
 insert into fruit (name) values ('Cherry');
@@ -116,9 +116,9 @@ insert into fruit (name) values ('Banana');
 **5. Add a test class**
 To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
 
-First, we need to create the java class file. For that, you need to click on the following link which opens the empty file in the editor: ``src/test/java/com/example/ApplicationTest.java``{{open}}
+First, we need to create the java class file. For that, you need to click on the following link which opens the empty file in the editor: ``src/test/java/com/example/service/ApplicationTest.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to editor` button):
+Then, copy the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/test/java/com/example/service/ApplicationTest.java" data-target="replace">
 package com.example.service;
