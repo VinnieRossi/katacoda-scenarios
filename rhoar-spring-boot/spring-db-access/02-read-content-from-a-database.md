@@ -128,7 +128,7 @@ Run the application by executing the below command:
 
 ``mvn verify``{{execute}}
 
-In the console you should now see the following:
+In the console you should now see the following (if the output is too noisy the first time around because of downloads simply run the command again):
 
 ```
 Results :
