@@ -7,4 +7,5 @@ UI_PATH=/root/code 	  # This should match your index.json key
 
 git clone -q https://github.com/GetLevvel/rhoar-sample-code.git
 cd ${UI_PATH} && cp -R /root/rhoar-sample-code/${PROJECT}/* ./
+clear # To clean up Katacoda terminal noise
 ~/.launch.sh
