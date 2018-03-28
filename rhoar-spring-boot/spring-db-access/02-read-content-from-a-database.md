@@ -95,6 +95,7 @@ package com.example.service;
 import org.springframework.data.repository.CrudRepository;
 
 public interface FruitRepository extends CrudRepository&lt;Fruit, Long&gt; {
+// TODO query methods
 }
 </pre>
 
@@ -119,8 +120,8 @@ First, we need to create the java class file. For that, you need to click on the
 
 Then, copy the below content into the file (or use the `Copy to editor` button):
 
-<pre class="file" data-filename="src/test/java/com/example/ApplicationTest.java" data-target="replace">
-package com.example;
+<pre class="file" data-filename="src/test/java/com/example/service/ApplicationTest.java" data-target="replace">
+package com.example.service;
 
 import java.util.Collections;
 
@@ -205,6 +206,64 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 ```
 
 >**NOTE:** As a reminder: the configuration for database connectivity is found in the application properties files in `src/main/resources/`{{open}} since we chose to override the Spring Boot defaults. For local we use the `application-local.properties` file. On OpenShift we use the `application-openshift.properties` file.
+
+**6. Review The Controller**
+
+To see how this repository could be used in a web application we're going to quickly review the FruitController file. Open ``src/test/java/com/example/service/FruitController.java``{{open}} in your editor.
+
+In order to use our FruitRepository we must first autowire one in our constructor:
+
+```java
+@Autowired
+public FruitController(FruitRepository repository) {
+    this.repository = repository;
+}
+```
+
+Since Repositories are a managed Bean in Spring we have to tell Spring to inject an instance into our Controller for use. We use Constructor Autowiring as per the suggestion of the Spring Team since it is considered best practice and allows easier mock injecting in tests.
+
+If we are fetching all records from the database we use the aforementioned `repository.findAll()` method. To delete we have `repository.delete(id)`, to save a new entry we have `repository.save(fruit)`, and so on. All these methods reside on the CrudRepository interface which is automatically implemented by Spring.
+
+>**NOTE:** The usual input validations have been omitted from this class for brevity's sake. Always validate and sanitize input coming from the client!
+
+**7. Query Methods**
+
+The methods provided by CrudRepository are nice when we are dealing directly with IDs but sometimes we don't have that information. Let's say, for example, we have a search box that allows users to search by Fruit Name. We currently do not support that functionality without using a `findAll()` and then filtering the results in the application. Not a good idea for large datasets.
+
+Fortunately there exists within the JPA specification a section on `Query Methods`. Query methods are methods on Repositories that follow a specific naming pattern. These methods can then be turned into implementation code by JPA providers for running actual queries.
+
+Let's re-open the FruitRepository class file in the editor: ``src/test/java/com/example/service/FruitRepository.java``{{open}} and add the following code at the TODO line (or use the `Copy to Editor` button):
+
+<pre class="file" data-filename="src/test/java/com/example/service/FruitRepository.java" data-target="insert" data-marker="// TODO query methods">
+    List<Fruit> findByName(String name);
+
+    default List<Fruit> findAllFruitsByName(String name) {
+        return findByName(name);
+    }
+
+    @Query("select f from Fruit f where f.name like %?1")
+    List<Fruit> findByNameLike(String name);
+</pre>
+
+The first method `findByName(String name)` is a standard JPA _Query Method_. The format of this method is `findBy` followed by the field we are querying on for our Fruit object. For the `name` field we use the same name. Note that the field name is capitalized to follow the standard Java _camelCase_ format. 
+
+The format of these methods can get pretty complex but here we're only referring to the `name` field of our `Fruit` model so the method name is pretty short. For a more in depth guide to Query Methods see [this](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods) article.
+
+The second method demonstrates _default methods_ which were introduced in Java 8. This allows us to provide a method definition for an interface method. In this case we've created an alias for the `findByName()` method which simply delegates to the JPA Query Method. This technique is particularly useful when the Query Methods get very complex and long as it allows us to define more readable repository methods that delegate to their more complex counterpart. We can also aggregate operations in this way.
+
+The last method is an example of the `@Query` annotation which allows you to provide an actual SQL Query to execute. Note, however, that the syntax is a little different. This is actually a dialect called JPQL which looks like ANSI SQL but with a few differences. You can, however, use native queries by adding the `nativeQuery=true` argument to the annotation. Be aware that this approach can cause tight coupling between your code and your database if you use database-specific extensions that won't be caught until runtime. This is, however, particularly useful for complex queries that are better suited for plain native SQL.
+
+**8. Verify the application**
+
+To verify that the application actually works now we need to actually run the application. Run the application by executing the following command ``mvn spring-boot:run``{{execute}}
+
+Next, click on the **Local Web Browser** tab in the console frame of this browser window which will open another tab or window of your browser pointing to port 8080 on your client. Or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+
+You should now see an HTML page with an `Add a Fruit` textbox on the left and a `Fruits List` view on the right with the three fruits we pre-populated with the `import.sql` file. Adding a new fruit name into the textbox and clicking `Save` should insert the new Fruit name into the right-hand list. Clicking on the `Remove` buttons should also work as expected.
+
+**4. Stop the application**
+
+Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
 
 ## Congratulations
 

@@ -12,17 +12,14 @@
     "steps": [
       { "title": "Step 1", "text": "01-review-the-initial-project.md", "code": "set-env.sh" },
       { "title": "Step 2", "text": "02-read-content-from-a-database.md" },
-      { "title": "Step 3", "text": "03-create-rest-services.md" },
-      { "title": "Step 4", "text": "04-login-to-openshift.md" },
-      { "title": "Step 5", "text": "05-deploy-to-openshift.md" }
+      { "title": "Step 3", "text": "03-login-to-openshift.md" },
+      { "title": "Step 4", "text": "04-deploy-to-openshift.md" }
     ],
     "finish": {
       "text": "99-outro.md"
     }
   },
-  "files": [
-
-  ],
+  "files": [],
   "environment": {
     "showdashboard": true,
     "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
