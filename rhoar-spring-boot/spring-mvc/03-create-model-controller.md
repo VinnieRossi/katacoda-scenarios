@@ -94,9 +94,7 @@ Run the application by executing the below command:
 
 In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
 
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
-
-![Local Web Browser Tab](../../assetsmiddleware/rhoar-getting-started-spring/web-browser-tab.png)
+When the console reports that Spring is up and running access the web page by using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/fruits).
 
 If everything works the web page should look something like this:
 
