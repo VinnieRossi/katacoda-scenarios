@@ -39,7 +39,7 @@ public class Fruit {
 
 As you can see this is a Plain-Old-Java-Object (POJO). Nothing fancy here yet!
 
-**2. Add a REST Controller**
+**2. Add a Controller**
 
 To make these models available to our application we need to create a Spring Controller. Controllers are the **C** in the MVC pattern which mediate between our views and our internal models / business logic. Here we need to create a Spring `@RestController` annotated Java class. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitController.java``{{open}}
 
@@ -56,7 +56,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/fruits")
 public class FruitController {
 
     private List&lt;Fruit&gt; fruits = new ArrayList&lt;&gt;();
@@ -65,7 +65,7 @@ public class FruitController {
     public String home(Model model) {
         model.addAttribute("fruits", fruits);     // For the List view
         model.addAttribute("fruitForm", new Fruit()); // For the Form
-        return "index";
+        return "home";
     }
 
     // TODO POST mapping here

@@ -69,6 +69,8 @@ Spring Boot has a pre-packaged POM (called a Starter POM) for the Spring MVC dep
     &lt;/dependency&gt;
 </pre>
 
+>**NOTE**: We include a specific version number for Thymeleaf as currently Snowdrop does not manage a version for this POM
+
 There are other dependencies brought in by this Spring Starter POM. We will revisit these later in the scenario.
 
 Note that the Thymeleaf dependency is our View technology which will be explained in the next section. For now just note that the `spring-boot-starter-thymeleaf` Starter POM is similar to the `spring-boot-starter-web` POM in that it brings in all the necessary dependencies for working with Thymeleaf in Spring Boot.
