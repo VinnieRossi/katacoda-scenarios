@@ -12,10 +12,11 @@
     },
     "steps": [
       { "title": "Step 1", "text": "01-review-the-initial-project.md" },
-      { "title": "Step 2", "text": "02-create-model-controller.md" },
-      { "title": "Step 3", "text": "03-review-view.md" },
-      { "title": "Step 3", "text": "04-login-to-openshift.md" },
-      { "title": "Step 4", "text": "05-deploy-to-openshift.md" }
+      { "title": "Step 2", "text": "02-error-pages.md" },
+      { "title": "Step 2", "text": "03-create-model-controller.md" },
+      { "title": "Step 3", "text": "04-review-view.md" },
+      { "title": "Step 3", "text": "06-login-to-openshift.md" },
+      { "title": "Step 4", "text": "07-deploy-to-openshift.md" }
     ],
     "finish": {
       "text": "99-outro.md"

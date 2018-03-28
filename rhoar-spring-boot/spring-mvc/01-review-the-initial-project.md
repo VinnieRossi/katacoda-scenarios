@@ -78,7 +78,7 @@ You may notice that there is no `<version>` tag here. That's because the version
 
 As we develop the application we want to be able to test and verify our change at different stages. One way we can do that locally is by using the `spring-boot` maven plugin.
 
-Run the application by executing the following command (it should exit automatically as we do not have any web code yet):
+Run the application by executing the following command:
 
 ``mvn spring-boot:run``{{execute}}
 
@@ -86,13 +86,9 @@ Run the application by executing the following command (it should exit automatic
 
 **3. Verify the application**
 
-To begin with, click on the **Local Web Browser** tab in the console frame of this browser window, which will open another tab or window of your browser pointing to port 8080 on your client or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/fruits) link.
+To begin with, click on the **Local Web Browser** tab in the console frame of this browser window, which will open another tab or window of your browser pointing to port 8080 on your client or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
-You should now see an HTML page that looks like this:
-
-![Local Web Browser Tab](../../assetsmiddleware/rhoar-getting-started-spring/web-page.png)
-
-As you can probably guess by now the application we are building is a Fruit repository where we perform various operations on different kinds of fruits.
+At the moment this link should return a HTTP 404. But more importantly it returns what's called a Spring White-label page. In the absence of custom error pages Spring will return a White-label page with some error information. In some cases this can be a stack trace or an explicit error message. Because of this it's typically recommended to provide your own error pages. We will do this in the next step.
 
 **4. Stop the application**
 

@@ -56,7 +56,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/fruits")
+@RequestMapping("/")
 public class FruitController {
 
     private List&lt;Fruit&gt; fruits = new ArrayList&lt;&gt;();
