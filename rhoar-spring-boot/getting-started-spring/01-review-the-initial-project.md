@@ -74,7 +74,7 @@ You may notice that there is no `<version>` tag here. That's because the version
 
 As we develop the application we want to be able to test and verify our change at different stages. One way we can do that locally is by using the `spring-boot` maven plugin.
 
-Run the application by executing the following command (it should exit automatically as we do not have any web code yet):
+Run the application by executing the following command:
 
 ``mvn spring-boot:run``{{execute}}
 
