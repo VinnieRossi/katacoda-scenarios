@@ -59,13 +59,13 @@ import java.util.List;
 @RequestMapping("/fruits")
 public class FruitController {
 
-    private List<Fruit> fruits = new ArrayList<>();
+    private List&lt;Fruit&gt; fruits = new ArrayList&lt;&gt;();
 
     @GetMapping
     public String home(Model model) {
         model.addAttribute("fruits", fruits);     // For the List view
         model.addAttribute("fruitForm", new Fruit()); // For the Form
-        return "home";
+        return "index";
     }
 
     // TODO POST mapping here
@@ -78,7 +78,7 @@ The `@Controller` annotation is a Spring annotation which marks the annotated cl
 
 For the sake of simplicity we have a simple variable cache to store Fruits. In actual applications we would be injecting storage dependencies but for this module we'll use a simple list cache.
 
-`@GetMapping` is a special form of `@RequestMapping`. It's actually short-hand for `@RequestMapping(method = RequestMethod.GET)`. It can also take a `value` argument to specify a URI segment such as `@GetMapping("/fruits/:name")`. This `@GetMapping` will handle HTTP GET requests to the `/fruits` URI by returning a view called `home`. In Spring MVC when a `@Controller` class' method returns a String it attempts to find a view with the returned name. 
+`@GetMapping` is a special form of `@RequestMapping`. It's actually short-hand for `@RequestMapping(method = RequestMethod.GET)`. It can also take a `value` argument to specify a URI segment such as `@GetMapping("/fruits/:name")`. This `@GetMapping` will handle HTTP GET requests to the `/fruits` URI by returning a view called `index`. In Spring MVC when a `@Controller` class' method returns a String it attempts to find a view with the returned name. 
 
 The `Model` argument to our method is a Spring MVC model. This is the glue between our Model and Spring. Spring automatically passes a Model object when it sees a Controller method with a `Model` argument. We don't have to do this ourselves. The `Model` is effectively a `Map<String, Object` which we can store data behind keys to be sent to the View. In this case we are adding two keys: `fruits` which will store the `List<Fruit>` of added fruits and `fruitForm` which is a Form Binding to our `Fruit` POJO.
 
