@@ -66,7 +66,7 @@ Run the application again by executing the following command:
 
 **3. Verify the application**
 
-If you click on the **Local Web Browser** tab again in the console frame of this browser window or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link, you should now see a custom page with a table containing all available information. 
+If you click on the **Local Web Browser** tab again in the console frame of this browser window or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link, you should now see a custom page with a table containing all available error information. These variables can be used selectively to only display relevant information to the user.
 
 **4. Stop the application**
 
