@@ -92,8 +92,11 @@ Then, copy the below content into the file (or use the `Copy to Editor` button):
 <pre class="file" data-filename="src/main/java/com/example/service/FruitRepository.java" data-target="replace">
 package com.example.service;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface FruitRepository extends CrudRepository&lt;Fruit, Long&gt; {
 // TODO query methods
 }
