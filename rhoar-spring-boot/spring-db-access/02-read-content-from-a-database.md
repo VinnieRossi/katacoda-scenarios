@@ -232,7 +232,7 @@ The methods provided by CrudRepository are nice when we are dealing directly wit
 
 Fortunately there exists within the JPA specification a section on `Query Methods`. Query methods are methods on Repositories that follow a specific naming pattern. These methods can then be turned into implementation code by JPA providers for running actual queries.
 
-Let's re-open the FruitRepository class file in the editor: ``src/test/java/com/example/service/FruitRepository.java``{{open}} and add the following code at the TODO line (or use the `Copy to Editor` button):
+Let's re-open the FruitRepository class file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}} and add the following code at the TODO line (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/test/java/com/example/service/FruitRepository.java" data-target="insert" data-marker="// TODO query methods">
     List<Fruit> findByName(String name);
