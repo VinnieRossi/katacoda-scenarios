@@ -58,14 +58,12 @@ Run the following command to deploy the application to OpenShift
 
 After the Maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
 
-``oc rollout status dc/fruits``{{execute}}
+``oc rollout status dc/rhoar-training``{{execute}}
 
-Then either go to the OpenShift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Then either go to the OpenShift web console and click on the route or click [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
-Make sure that you can add, edit, and remove fruits, using the web application.
+Make sure that you can add and remove fruits using the web application.
 
 ## Congratulations
 
-You have now learned how to deploy a Spring Boot application to OpenShift Container Platform. This concludes the first learning scenario for Spring Boot. 
-
-Click Summary for more details and suggested next steps.
+You have now learned how to deploy a Spring Boot application to OpenShift Container Platform with a PostgreSQL database. Click Summary for more details and suggested next steps.
