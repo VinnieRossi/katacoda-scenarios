@@ -118,84 +118,10 @@ insert into fruit (name) values ('Apple');
 insert into fruit (name) values ('Banana');
 </pre>
 
-**5. Add a test class**
-To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
+**5. Test and Verify**
+To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects we have created a JUnit Test Class at ``src/test/java/com/example/service/ApplicationTest.java``{{open}}
 
-First, we need to create the java class file. For that, you need to click on the following link which opens the empty file in the editor: ``src/test/java/com/example/service/ApplicationTest.java``{{open}}
-
-Then, copy the below content into the file (or use the `Copy to Editor` button):
-
-<pre class="file" data-filename="src/test/java/com/example/service/ApplicationTest.java" data-target="replace">
-package com.example.service;
-
-import java.util.Collections;
-
-import com.example.service.Fruit;
-import com.example.service.FruitRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ApplicationTest {
-
-    @Autowired
-    private FruitRepository fruitRepository;
-
-    @Before
-    public void beforeTest() {
-    }
-
-    @Test
-    public void testGetAll() {
-        assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown() == 3);
-    }
-    
-    @Test
-    public void getOne() {
-        assertTrue(fruitRepository.findOne(1L) != null);
-    }
-
-    @Test
-    public void updateAFruit() {
-        Fruit apple = fruitRepository.findOne(2L);
-        assertTrue(apple != null);
-        assertTrue(apple.getName().equals("Apple"));
-        
-        apple.setName("Green Apple");
-        fruitRepository.save(apple);
-        
-        assertTrue(fruitRepository.findOne(2L).getName().equals("Green Apple"));
-    }
-
-    @Test
-    public void createAndDeleteAFruit() {
-        Long orangeId = fruitRepository.save(new Fruit("Orange")).getId();
-        Fruit orange = fruitRepository.findOne(orangeId);
-        assertTrue(orange != null);
-
-        fruitRepository.delete(orange);
-        assertTrue(fruitRepository.findOne(orangeId) == null);
-    }
-
-    @Test
-    public void getWrongId() {
-        assertTrue(fruitRepository.findOne(9999L) == null);
-    }
-}
-</pre>
-
-Take a bit of time and review the tests. The `testGetAll` test will return all fruits in the repository, which should be three because of the content in `import.sql`. The `getOne` test will retrieve the fruit with id 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` checks that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository returns null.
-
-**5. Run and verify**
+Take a bit of time and review the tests. The `testGetAll` test will return all fruits in the repository, which should be three because of the content in `import.sql`. The `getOne` test will retrieve the fruit with ID 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` checks that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository returns null.
 
 We can now test that our `FruitRepository` can connect to the data source, retrieve data and 
 Run the application by executing the below command:
