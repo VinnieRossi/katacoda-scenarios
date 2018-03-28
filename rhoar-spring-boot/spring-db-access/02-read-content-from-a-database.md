@@ -119,7 +119,7 @@ insert into fruit (name) values ('Banana');
 </pre>
 
 **5. Test and Verify**
-To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects we have created a JUnit Test Class at ``src/test/java/com/example/service/ApplicationTest.java``{{open}}
+To verify that we can use the `FruitRepository` for retrieving and storing Fruit objects we have created a JUnit Test Class at ``src/test/java/com/example/service/DatabaseTest.java``{{open}}
 
 Take a bit of time and review the tests. The `testGetAll` test will return all fruits in the repository, which should be three because of the content in `import.sql`. The `getOne` test will retrieve the fruit with ID 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` checks that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository returns null.
 
