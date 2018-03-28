@@ -56,7 +56,7 @@ Run the following command to deploy the application to OpenShift
 
 ``mvn package fabric8:deploy -Popenshift -DskipTests``{{execute}}
 
-After the Maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
+This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify that everything is started by running the following command:
 
 ``oc rollout status dc/rhoar-training``{{execute}}
 
