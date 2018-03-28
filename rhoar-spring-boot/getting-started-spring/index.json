@@ -7,10 +7,11 @@
   "time": "15 minutes",
   "details": {
     "intro": {
-      "text": "00-intro.md"
+      "text": "00-intro.md",
+      "code": "env-init.sh"
     },
     "steps": [
-      { "title": "Step 1", "text": "01-review-the-initial-project.md", "code": "../assets/env-init.sh" },
+      { "title": "Step 1", "text": "01-review-the-initial-project.md" },
       { "title": "Step 2", "text": "02-login-to-openshift.md" },
       { "title": "Step 3", "text": "03-deploy-to-openshift.md" }
     ],
@@ -25,7 +26,7 @@
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
-    "uieditorpath": "/root/code/getting-started-spring",
+    "uieditorpath": "/root/code",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
