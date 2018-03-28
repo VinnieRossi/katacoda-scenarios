@@ -7,9 +7,9 @@ Before we deploy the application to OpenShift and verify that it runs correctly,
 
 **1. Create the database**
 
-Since this is your own personal project you need to create a database instance that your application can connect to. In a shared environment this would typically be provided for you, that's why we are not deploying this as part of your application. It's however very simple to do that in openshift. All you need to do is to execute the below command in the console.
+Since this is your own personal project you need to create a database instance that your application can connect to. In a shared environment this would typically be provided for you, that's why we are not deploying this as part of your application. It's however very simple to do that in OpenShift. All you need to do is to execute the below command in the console.
 
-``oc new-app -e POSTGRESQL_USER=luke \
+``oc new-app -e POSTGRESQL_USER=dev \
              -e POSTGRESQL_PASSWORD=secret \
              -e POSTGRESQL_DATABASE=my_data \
              openshift/postgresql-92-centos7 \
