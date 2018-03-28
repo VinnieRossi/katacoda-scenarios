@@ -94,11 +94,9 @@ Run the application by executing the below command:
 
 In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
 
-When the console reports that Spring is up and running access the web page by using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/fruits).
+When the console reports that Spring is up and running access the web page by using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/fruits). The Local Browser tab will not work as it does not point to the correct URI.
 
-If everything works the web page should look something like this:
-
-![Fruit List](../../assetsmiddleware/rhoar-getting-started-spring/fruit-list.png)
+While the application should come up the `Save` button should not work yet. We'll make that work next.
 
 Press **CTRL+C** to stop the application.
 
@@ -107,14 +105,14 @@ Press **CTRL+C** to stop the application.
 Now we'll add the `@PostMapping` method which will handle input from the Add Fruit form. Open ``src/main/java/com/example/service/FruitController.java``{{open}} and then copy the below content into the file at the TODO (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="rc/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="// TODO POST mapping here">
-    @PostMapping
+@PostMapping
     public String createFruit(@ModelAttribute Fruit fruit) {
         fruits.add(fruit);
         return "redirect:/fruits";
     }
 </pre>
 
-Now re-run the application by executing the ``mvn spring-boot:run``{{execute}} command again. When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+Now re-run the application by executing the ``mvn spring-boot:run``{{execute}} command again. When the console reports that Spring is up and running access the web page by using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/fruits).
 
 If you add a Fruit name to the text box and click save it should now appear on the right side list.
 

@@ -29,7 +29,7 @@ This step may take some time to do the Maven build and the OpenShift deployment.
 
 ``oc rollout status dc/rhoar-training``{{execute}}
 
-You should see output in the console similar to `replication controller "rhoar-training" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com). You should see the same page as before only this time it's coming from the application hosted on OpenShift!
+You should see output in the console similar to `replication controller "rhoar-training" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/fruits). You should see the same page as before only this time it's coming from the application hosted on OpenShift!
 
 ## Congratulations
 
