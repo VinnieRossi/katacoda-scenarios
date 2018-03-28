@@ -4,7 +4,7 @@ In Step 1 you learned how to get started with our project. In this step, we will
 
 **1. Adding JPA (Hibernate) to the application**
 
-Since our application will need to access a database to retrieve and store fruit entries we need to add a Database Connection library. One such implementation in Spring is the Spring Data project which contains the Java Persistence APIs (JPA) and a JPA implementation - Hibernate. Hibernate been tested and verified as part of the OpenShift Application Runtimes so we are going to use it here. Spring Boot has full knowledge of these libraries as well so we get to take advantage of Spring Boot's auto-configuration with these libraries as well!
+Since our application will need to access a database to retrieve and store fruit entries we need to add a Database Connection library. One such implementation in Spring is the Spring Data project which contains the Java Persistence APIs (JPA) and a JPA implementation - Hibernate. Hibernate has been tested and verified as part of the OpenShift Application Runtimes so we are going to use it here. Spring Boot has full knowledge of these libraries as well so we get to take advantage of Spring Boot's auto-configuration with these libraries as well!
 
 >**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in OpenShift Application Runtimes. 
 
@@ -17,9 +17,9 @@ To add Spring Data + JPA and Hibernate to our project all we have to do is to ad
     &lt;/dependency&gt;
 </pre>
 
-We also need a Database to actually interact with. When running locally or when running tests an in-memory Database is often used over connection to an external Database because its lifecyle can be managed by Spring and we don't have to worry about outages. H2 is a small in-memory database that is perfect for testing but is not recommended for production environments. To add H2 add the following dependency at the comment `<!-- TODO: ADD H2 database dependency here -->` in the local profile.
+We also need a Database to actually interact with. When running locally or when running tests an in-memory Database is often used over connection to an external Database because its lifecyle can be managed by Spring and we don't have to worry about outages impacting our local development. H2 is a small in-memory database that is perfect for testing but is not recommended for production environments. To add H2 add the following dependency at the comment `<!-- TODO: ADD H2 database dependency here -->` in the local profile.
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD H2 database dependency here -->">
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add H2 database dependency here -->">
     &lt;dependency&gt;
       &lt;groupId&gt;com.h2database&lt;/groupId&gt;
       &lt;artifactId&gt;h2&lt;/artifactId&gt;
@@ -31,11 +31,11 @@ If Spring Boot sees a database like H2 on the classpath it will automatically co
 
 **2. Create an Entity class**
 
-We are going to implement an Entity class that represents a fruit. This class is used to map our object to a database schema.
+We are going to implement an Entity class that represents a Fruit. This class is used to map our object to a database schema.
 
 First, we need to create the java class file. For that, you need to click on the following link which opens the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to editor` button):
+Then, copy the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/Fruit.java" data-target="replace">
 package com.example.service;
