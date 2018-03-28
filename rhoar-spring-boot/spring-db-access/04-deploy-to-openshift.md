@@ -29,7 +29,7 @@ In this file we are using the configuration from the `deployment.yml` to read th
 
 So far our application has only used the H2 embedded Database. We now need to add a dependency for the PostgreSQL driver. We do that by adding a runtime dependency under the `openshift` profile in the ``pom.xml``{{open}} file.
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD PostgreSQL database dependency here -->">
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add PostgreSQL database dependency here -->">
         &lt;dependency&gt;
           &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
           &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
@@ -43,7 +43,7 @@ So far our application has only used the H2 embedded Database. We now need to ad
 
 We also need a health check so that OpenShift can detect when our application is responding correctly. Spring Boot provides a nice feature for this called Actuator, which exposes health data under the path `/health`. All we need to do is to add the following dependency to ``pom.xml``{{open}} at the **TODO** comment..
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD Actuator dependency here -->">
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add Actuator dependency here -->">
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
