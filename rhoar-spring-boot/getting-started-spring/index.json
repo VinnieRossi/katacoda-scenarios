@@ -7,16 +7,15 @@
   "time": "15 minutes",
   "details": {
     "intro": {
-      "text": "intro.md",
-      "courseData": "env-init.sh"
+      "text": "00-intro.md"
     },
     "steps": [
-      { "title": "Step 1", "text": "review-the-initial-project.md", "code": "set-env.sh" },
-      { "title": "Step 2", "text": "login-to-openshift.md" },
-      { "title": "Step 3", "text": "deploy-to-openshift.md" }
+      { "title": "Step 1", "text": "01-review-the-initial-project.md", "code": "set-env.sh" },
+      { "title": "Step 2", "text": "02-login-to-openshift.md" },
+      { "title": "Step 3", "text": "03-deploy-to-openshift.md" }
     ],
     "finish": {
-      "text": "outro.md"
+      "text": "99-outro.md"
     }
   },
   "files": [],
