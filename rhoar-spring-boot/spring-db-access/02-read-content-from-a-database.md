@@ -235,14 +235,14 @@ Fortunately there exists within the JPA specification a section on `Query Method
 Let's re-open the FruitRepository class file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}} and add the following code at the TODO line (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/test/java/com/example/service/FruitRepository.java" data-target="insert" data-marker="// TODO query methods">
-    List<Fruit> findByName(String name);
+    List&lt;Fruit&gt; findByName(String name);
 
-    default List<Fruit> findAllFruitsByName(String name) {
+    default List&lt;Fruit&gt; findAllFruitsByName(String name) {
         return findByName(name);
     }
 
     @Query("select f from Fruit f where f.name like %?1")
-    List<Fruit> findByNameLike(String name);
+    List&lt;Fruit&gt; findByNameLike(String name);
 </pre>
 
 The first method `findByName(String name)` is a standard JPA _Query Method_. The format of this method is `findBy` followed by the field we are querying on for our Fruit object. For the `name` field we use the same name. Note that the field name is capitalized to follow the standard Java _camelCase_ format. 
