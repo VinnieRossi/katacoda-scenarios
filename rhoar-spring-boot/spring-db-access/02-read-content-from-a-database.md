@@ -209,7 +209,7 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
 **6. Review The Controller**
 
-To see how this repository could be used in a web application we're going to quickly review the FruitController file. Open ``src/test/java/com/example/service/FruitController.java``{{open}} in your editor.
+To see how this repository could be used in a web application we're going to quickly review the FruitController file. Open ``src/main/java/com/example/service/FruitController.java``{{open}} in your editor.
 
 In order to use our FruitRepository we must first autowire one in our constructor:
 
