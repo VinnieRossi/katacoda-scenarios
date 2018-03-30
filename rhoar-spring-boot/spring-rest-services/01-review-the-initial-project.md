@@ -21,7 +21,6 @@ The output should look something like this:
         |           |-- Application.java
         |           `-- service
         `-- resources
-            |-- application-local.properties
             |-- application-openshift.properties
 ```
 
@@ -54,7 +53,7 @@ Since our application will be a web application we need to use a servlet contain
 
 >**NOTE:** Undertow is another an open source project that is maintained by Red Hat and therefore Red Hat plans to add support for Undertow shortly.
 
-In addition we are going to utilize the Spring MVC project which contains many of the abstractions we will use to build our REST APIs. To add these dependencies to our project add the following lines in the ``pom.xml``{{open}} (If you left the TODO comments in you can click the `Copy to Editor` button to do this automatically)
+In addition we are going to utilize the Spring MVC project which contains many of the abstractions we will use to build our APIs. To add these dependencies to our project add the following lines in the ``pom.xml``{{open}} (If you left the TODO comments in you can click the `Copy to Editor` button to do this automatically)
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add web (tomcat) dependency here -->">
     &lt;dependency&gt;
@@ -77,7 +76,7 @@ Run the application by executing the following command (it should exit automatic
 
 >**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have `Java SDK 1.8` and `Maven` installed. In later steps, we will also use the `oc` command line tool for OpenShift commands.
 
-If everything was added properly you should see a log line like `Started Application in 2.655 seconds (JVM running for 3.286)`.
+If everything was added properly you should see a log line like `Started Application in 2.655 seconds (JVM running for 3.286)`. You should also be able to see a simple web page with a header and text box by clicking on the **Local Web Browser** tab in the console frame of this browser window or using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
 
 **3. Stop the application**
 
