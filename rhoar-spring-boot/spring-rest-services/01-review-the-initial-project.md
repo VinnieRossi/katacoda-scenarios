@@ -55,7 +55,7 @@ Since our application will be a web application we need to use a servlet contain
 
 In addition we are going to utilize the Spring MVC project which contains many of the abstractions we will use to build our APIs. To add these dependencies to our project add the following lines in the ``pom.xml``{{open}} (If you left the TODO comments in you can click the `Copy to Editor` button to do this automatically)
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add web (tomcat) dependency here -->">
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO Add Web depenedency here -->">
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
