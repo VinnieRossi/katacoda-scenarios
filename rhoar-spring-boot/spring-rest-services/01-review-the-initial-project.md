@@ -76,11 +76,7 @@ Run the application by executing the following command (it should exit automatic
 
 >**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have `Java SDK 1.8` and `Maven` installed. In later steps, we will also use the `oc` command line tool for OpenShift commands.
 
-If everything was added properly you should see a log line like `Started Application in 2.655 seconds (JVM running for 3.286)`. You should also be able to see a simple web page with a header and text box by clicking on the **Local Web Browser** tab in the console frame of this browser window or using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
-
-**3. Stop the application**
-
-Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
+At this point the build should fail due to a missing `Fruit` class. This is fine. We will create this class in the next step.
 
 ## Congratulations
 
