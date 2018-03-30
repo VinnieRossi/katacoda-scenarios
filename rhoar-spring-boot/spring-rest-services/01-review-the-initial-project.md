@@ -8,26 +8,29 @@ The output should look something like this:
 
 ```sh
 .
-|-- pom.xml
-`-- src
-    `-- main
-        |-- fabric8
-        |   |-- credentials-secret.yml
-        |   |-- deployment.yml
-        |   `-- route.yml
-        |-- java
-        |   `-- com
-        |       `-- example
-        |           |-- Application.java
-        |           `-- service
-        `-- resources
-            |-- application-openshift.properties
+├── pom.xml
+└── src
+    └── main
+        ├── fabric8
+        │   ├── credentials-secret.yml
+        │   ├── deployment.yml
+        │   └── route.yml
+        ├── java
+        │   └── com
+        │       └── example
+        │           ├── Application.java
+        │           └── service
+        │               ├── Fruit.java
+        │               └── FruitRepository.java
+        └── resources
+            ├── application-openshift.properties
+            ├── import.sql
+            └── static
+                └── index.html
 ```
 
 
-Except for the `fabric8` directory and the `index.html`, this matches what you would get if you generated an empty project using the [Spring Initializr](https://start.spring.io). For the moment you can ignore the content of the fabric8 folder (we will discuss this later).
-
-One thing that differs slightly is the ``pom.xml``{{open}} file.
+For the moment you can ignore the content of the fabric8 folder (we will discuss this later). One thing that differs slightly is the ``pom.xml``{{open}} file.
 
 As you review the content, you will notice that there are a lot of **TODO** comments. **Do not remove them!** These comments are used as markers for later exercises in this scenario. 
 
@@ -76,7 +79,7 @@ Run the application by executing the following command (it should exit automatic
 
 >**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have `Java SDK 1.8` and `Maven` installed. In later steps, we will also use the `oc` command line tool for OpenShift commands.
 
-At this point the build should fail due to a missing `Fruit` class. This is fine. We will create this class in the next step.
+You should eventually see a log line like `Started Application in 4.497 seconds (JVM running for 9.785)`. Then stop the application by pressing **Ctrl+C**.
 
 ## Congratulations
 
