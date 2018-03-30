@@ -2,37 +2,9 @@
 
 RESTful web services are one of the core use cases for the Spring Boot framework as Spring makes it very easy to create HTTP APIs serving a variety of data types. We'll be learning how to use the standard HTTP verbs: GET, POST, PUT, and DELETE, how to use path segments, and how to return JSON content in this scenario.
 
-**1. Create a Model**
+**1. Review the Model**
 
-First we need to create a Java class file that will model our Fruit objects. For that, you need to click on the following link, which opens the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
-
-Then, copy the below content into the file (or use the `Copy to Editor` button):
-
-<pre class="file" data-filename="src/main/java/com/example/service/Fruit.java" data-target="replace">
-package com.example.service;
-
-public class Fruit {
-
-    private String name;
-
-    public Fruit() {
-    }
-
-    public Fruit(String type) {
-        this.name = type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-}
-</pre>
-
-As you can see this is just a Plain-Old-Java-Object (POJO). Nothing fancy here yet!
+We have already created the model for our Fruit objects due to it being necessary for the Repository. Click on the following link which will open the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}. As you can see it is just a Plain-Old-Java-Object (POJO). Nothing fancy here yet!
 
 **2. Add a Controller**
 
