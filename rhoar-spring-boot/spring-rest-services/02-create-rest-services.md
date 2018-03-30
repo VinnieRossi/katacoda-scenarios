@@ -108,7 +108,7 @@ Press **CTRL+C** to stop the application.
 
 **4. Add POST Mapping**
 
-Next let's add a handler for accepting HTTP POST requests. Copy the following to the `// TODO POST mapping` line (or use the `Copy to Editor` button):
+Next let's add a handler for accepting HTTP POST requests to create new entries. Copy the following to the `// TODO POST mapping` line (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="// TODO POST mapping">
 @PostMapping
@@ -125,13 +125,17 @@ Press **CTRL+C** to stop the application.
 
 **5. Add PUT Mapping**
 
-Next let's add a handler for accepting HTTP POST requests. Copy the following to the `// TODO POST mapping` line (or use the `Copy to Editor` button):
+Next let's add a handler for accepting HTTP PUT requests to update existing entries. Copy the following to the `// TODO POST mapping` line (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="// TODO POST mapping">
-
+@PutMapping("/{id}")
+public Fruit updateFruit(@PathVariable("id") Long id, @RequestBody Fruit fruit) {
+    fruit.setId(id);
+    return repository.save(fruit);
+}
 </pre>
 
-
+Just like the `@GetMapping` above this PUT handler handles requests to a path segment of the `/api/fruits` URI. In this case it handles routes like `PUT /api/fruits/1`. The route defines the ID being updated and the `@RequestBody`, just like in the POST mapping, contains the JSON payload for the Fruit change. 
 
 Run the application again by executing the ``mvn spring-boot:run``{{execute}} command. Again we will use the included web application to edit existing Fruits with a HTTP PUT to the application. Click the `Edit` button on one of the Fruits. It's name will populate the `Add a Fruit` text box. Change it to something else and click the `Save` button. If all is well it should show up in the right-hand `Fruits List` view with the new name.
 
@@ -139,13 +143,20 @@ Press **CTRL+C** to stop the application.
 
 **6. Add DELETE Mapping**
 
-Next let's add a handler for accepting HTTP POST requests. Copy the following to the `// TODO POST mapping` line (or use the `Copy to Editor` button):
+Finally, let's add a handler for accepting HTTP DELETE requests to delete existing entries. Copy the following to the `// TODO POST mapping` line (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="// TODO POST mapping">
-
+@DeleteMapping("/{id}")
+public void delete(@PathVariable("id") Long id) {
+    repository.delete(id);
+}
 </pre>
 
+We are again utilizing a route segment to specify an ID in the route. Thus this handler will handle routes like `DELETE /api/fruits/1`. 
+
 Run the application once more by executing the ``mvn spring-boot:run``{{execute}} command. This time we will use the included web application to DELETE Fruits from the application. Click the `Remove` button next to any of the Fruit entries. If all is well it should remove that Fruit from the List.
+
+>**NOTE**: Do not blindly accept IDs like this in your path for deletion in production applications! Make sure there is some level of security to ensure this functionality cannot be abused.
 
 Press **CTRL+C** to stop the application.
 
