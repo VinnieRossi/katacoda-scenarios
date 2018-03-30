@@ -76,7 +76,9 @@ These values are seeded values we've added to the project for you. What is impor
 
 >**NOTE:** JSON is not the only Media Type supported in Spring Boot. JSON is simply the default chosen by the framework.
 
-You can also try adding a `/1` to the end of the browser URL. It should just return `{"name":"Cherry"}`. Press **CTRL+C** to stop the application when you are done.
+You can also try adding a `/1` to the end of the browser URL. It should just return `{"name":"Cherry"}`. 
+
+Press **CTRL+C** to stop the application when you are done.
 
 **4. Add POST Mapping**
 
