@@ -1,6 +1,6 @@
 # Create JMS Message Listeners
 
-The Java Message Service (JMS) is a standard designed to allow applications to create, send, and receive Messages to form loosely coupled components. Messaging between components is typically asynchronous and is a very common pattern in distributed systems. 
+The Java Message Service (JMS) is a standard designed to allow applications to create, send, and receive Messages to form loosely coupled asynchronous components. Messaging between components is typically asynchronous and is a very common pattern in distributed systems. 
 
 Spring Boot offers abstractions for the JMS standard that make it very quick and easy to create messages from Java objects, send them to destination queues using the familiar Template pattern (akin to Spring's RestTemplate or JdbcTemplate), and to create Receivers (or Listeners) for specific types of messages on Queues.
 
@@ -20,23 +20,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class FruitReceiver {
 
-    private FruitRepository repository;
-
-    @Autowired
-    public FruitReceiver(FruitRepository repository) {
-        this.repository = repository;
-    }
-
     @JmsListener(destination = "fruitMailbox")
     public void receiveMessage(Fruit fruit) {
         System.out.println("Received: " + fruit);
-        repository.save(fruit);
     }
 
 }
 </pre>
 
-This class is pretty similar to our controller classes. We annotate the class with `@Component` to get the class picked up by Spring's Component Scanning. Spring will manage this class' lifecycle and dependencies for us. For dependencies we are autowiring an instance of the `FruitRepository` class to save Fruits received on the Queue to the database.
+We annotate the class with `@Component` to get the class picked up by Spring's Component Scanning. Spring will manage this class' lifecycle and dependencies for us.
 
 The `@JmsController` annotation is what sets this class up for JMS Message handling. We're essentially creating a binding: whenever a message of type `Fruit` is sent to the `fruitMailbox` destination (for all intents and purposes: the target Queue) this method will be called by Spring for processing.
 
