@@ -1,4 +1,6 @@
-TODO  
+In this scenario you learned about Spring Boot and how it can be used to create Message-driven applications using the JMS protocol. We will add additional scenarios that explain more how to build Spring Boot applications on OpenShift shortly, so check back to [learn.openshift.com](http://learn.openshift.com)
+
+To summarize: TODO
 
 ## Additional Resources
 

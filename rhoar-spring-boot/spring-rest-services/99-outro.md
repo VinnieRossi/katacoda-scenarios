@@ -1,4 +1,4 @@
-In this scenario, you learned about Spring Boot, and how it can be used to create RESTful APIs. We will add additional scenarios that explain more how to build Spring Boot applications on OpenShift shortly, so check back to [learn.openshift.com](http://learn.openshift.com)
+In this scenario you learned about Spring Boot and how it can be used to create RESTful APIs. We will add additional scenarios that explain more how to build Spring Boot applications on OpenShift shortly, so check back to [learn.openshift.com](http://learn.openshift.com)
 
 To summarize, you started by adding spring-boot-starter-web which brought in an supported version of an embedded Apache Tomcat Container from the Red Hat Maven Repository (since we used the BOM from Snowdrop). This enabled us to have a running web application returning an `index.html` file but without any server-side logic. After that we created the REST services and now we could test the full web application. Finally, we deployed everything to OpenShift. 
 
