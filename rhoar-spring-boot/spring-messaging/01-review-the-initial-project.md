@@ -77,7 +77,7 @@ Run the application by executing the following command:
 
 >**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have `Java SDK 1.8` and `Maven` installed. In later steps, we will also use the `oc` command line tool for OpenShift commands.
 
-You should see a log message like `Started Application in 4.746 seconds` if the application starts up successfully. The application has a Web UI built for you for later use. For now click **Ctrl+C** to stop the application.
+Right now the application will not compile because we are missing our Message object in the provided code.
 
 ## Congratulations
 
