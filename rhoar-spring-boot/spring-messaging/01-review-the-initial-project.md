@@ -50,16 +50,35 @@ Notice that we are not using the default BOM (Bill of material) that Spring Boot
   </dependencyManagement>
 ```
 
-**1. Test the application locally**
+**1. Add JMS Dependencies**
+
+To add Spring JMS to our project all we have to do is to add the following line in ``pom.xml``{{open}}
+
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add JMS dependency here -->">
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-starter-activemq&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+</pre>
+
+Along with the JMS dependencies this starter also brings in the ActiveMQ Broker. The Broker manages connections to the Queue and acts as the mediator between the application and ActiveMQ. The `jackson-databind` dependency is for marshalling and unmarshalling the messages we will send. We will cover this later.
+
+**2. Test the application locally**
 
 As we develop the application we want to be able to test and verify our change at different stages. One way we can do that locally is by using the `spring-boot` maven plugin.
 
-Run the application by executing the following command (it should exit automatically as we do not have any web code yet):
+Run the application by executing the following command:
 
 ``mvn spring-boot:run``{{execute}}
 
 >**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have `Java SDK 1.8` and `Maven` installed. In later steps, we will also use the `oc` command line tool for OpenShift commands.
 
+You should see a log message like `Started Application in 4.746 seconds` if the application starts up successfully. The application has a Web UI built for you for later use. For now click **Ctrl+C** to stop the application.
+
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. In next step of this scenario we will add the logic to be able to read a list of fruits from the database.
+You have now successfully executed the first step in this scenario. In the next step we will setup the code necessary to send and receive JMS messages.
