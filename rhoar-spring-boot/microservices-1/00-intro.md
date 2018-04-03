@@ -1,4 +1,4 @@
-In this scenario, you will learn more about developing Spring Boot applications using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. We will be building a small set of Microservices utilizing core Microservice techniques like Circuit Breaker, Service Discovery, Health Checks, and Load Balancing.
+In this scenario, you will learn more about developing Spring Boot Microservices using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. You will learn about Externalized Configurations and Health Checks.
 
 ## How is Spring Boot supported on OpenShift?
 
