@@ -1,4 +1,4 @@
-In this scenario, you will learn more about developing Spring Boot Microservices using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. You will learn about how to implement Single Sign-On (SSO) using KeyCloak and Spring Security.
+In this scenario you will learn more about developing Spring Boot Microservices using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. You will learn about how to implement Single Sign-On (SSO) using KeyCloak and Spring Security.
 
 ## How is Spring Boot supported on OpenShift?
 

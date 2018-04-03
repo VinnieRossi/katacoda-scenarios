@@ -1,4 +1,4 @@
-In this scenario, you will learn more about developing Spring Boot Microservices using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. You will learn about the Circuit Breaker pattern.
+In this scenario you will learn more about developing Spring Boot Microservices using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. You will learn about the Circuit Breaker pattern.
 
 ## How is Spring Boot supported on OpenShift?
 
