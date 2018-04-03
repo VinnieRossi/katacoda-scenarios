@@ -10,7 +10,7 @@ First we need a message object. Spring Boot allows us to code in the context of 
 
 Then, copy the below content into the file (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/com/example/service/Receiver.java" data-target="replace">
+<pre class="file" data-filename="src/main/java/com/example/service/Ping.java" data-target="replace">
 package com.example.service;
 
 public class Ping {
@@ -119,7 +119,7 @@ The single Bean in this class is our `MessageConverter`. Spring Boot uses this c
 
 **3. Sending JMS Messages**
 
-Now that we have a listener and a Message model we now need a Message Producer. Normally these would be coming from external systems but for our purposes we are going to send messages to ourselves. To do that we need a Producer class. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/Produ cer.java``{{open}}
+Now that we have a listener and a Message model we now need a Message Producer. Normally these would be coming from external systems but for our purposes we are going to send messages to ourselves. To do that we need a Producer class. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/Producer.java``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to Editor` button):
 
