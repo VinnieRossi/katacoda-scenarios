@@ -28,30 +28,30 @@
       "title": "Spring Boot Messaging and JBoss AMQ"
     },
     {
-      "course_id": "spring-arquillian-kube",
+      "course_id": "arquillian-kube",
       "title": "Testing with Arquillian Kube"
     },
     {
-      "course_id": "",
+      "course_id": "microservices-1",
       "title": "Spring Boot Microservices on RHOAR 1",
       "description": "Externalized Configuration and Health Checks"
     },
     {
-      "course_id": "",
+      "course_id": "microservices-2",
       "title": "Spring Boot Microservices on RHOAR 2",
       "description": "Service Discovery and Load Balancing"
     },
     {
-      "course_id": "",
+      "course_id": "microservices-3",
       "title": "Spring Boot Microservices on RHOAR 3",
       "description": "Circuit Breaking"
     },
     {
-      "course_id": "",
+      "course_id": "monitoring",
       "title": "Monitoring in OpenShift with Spring Boot Actuator"
     },
     {
-      "course_id": "spring-boot-sso",
+      "course_id": "spring-sso",
       "title": "Spring Boot Security and JBoss Keycloak"
     }
   ]
