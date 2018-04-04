@@ -15,7 +15,30 @@ Spring Boot provides a nice feature for health checks called Actuator. Actuator 
 
 **2. Deploy a JBoss AMQ Instance**
 
-TODO
+In order to deploy a JBoss AMQ instance we first need to create a Service Account for the AMQ Broker to run as. To do this we need to execute the following commands. Click on each command or copy/paste into the editor terminal:
+
+``echo '{"kind": "ServiceAccount", "apiVersion": "v1", "metadata": {"name": "amq-service-account"}}' | oc create -f -``{{execute}}
+``oc policy add-role-to-user view system:serviceaccount:amq-demo:amq-service-account``{{execute}}
+
+Next we need to add SSL keys. When deploying AMQ to OpenShift we are required to provide SSL keys. If you do not have your own enterprise keys (such as for a Dev environment) you can create your own. Execute the following to create the SSL keys:
+
+``keytool -genkey -noprompt -trustcacerts -alias broker -keyalg RSA -keystore broker.ks -keypass password -storepass password -dname "cn=Dev, ou=engineering, o=company, c=US"``{{execute}}
+``keytool -export -noprompt -alias broker -keystore broker.ks -file broker_cert -storepass password``{{execute}}
+``keytool -genkey -noprompt -trustcacerts -alias client -keyalg RSA -keystore client.ks -keypass password -storepass password -dname "cn=Dev, ou=engineering, o=company, c=US"``{{execute}}
+``keytool -import -noprompt -trustcacerts -alias broker -keystore client.ts -file broker_cert -storepass password``{{execute}}
+
+Next we will import these certificates into OpenShift as secrets:
+
+``oc secrets new amq-app-secret broker.ks && \
+oc secrets add sa/amq-service-account secret/amq-app-secret``{{execute}}
+
+Finally we can deploy AMQ: (TODO NOT WORKING)
+
+``oc process amq63-persistent-ssl -p APPLICATION_NAME=amq63 -p MQ_USERNAME=admin -p MQ_PASSWORD=admin -p AMQ_STORAGE_USAGE_LIMIT=1gb -p IMAGE_STREAM_NAMESPACE=openshift -p AMQ_TRUSTSTORE_PASSWORD=password -p AMQ_KEYSTORE_PASSWORD=password -p AMQ_SECRET=amq-app-secret -p AMQ_KEYSTORE=broker.ks -p AMQ_TRUSTSTORE=broker.ks -n amq-demo | oc create -f - && \
+oc create route passthrough --service amq63-amq-tcp-ssl && \
+oc create route passthrough --service amq63-amq-stomp-ssl && \
+oc create route passthrough --service amq63-amq-amqp-ssl && \
+oc create route passthrough --service amq63-amq-mqtt-ssl``{{execute}}
 
 **3. Deploy the application to OpenShift**
 
