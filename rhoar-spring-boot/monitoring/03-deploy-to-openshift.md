@@ -1,6 +1,6 @@
 # Deploy to OpenShift Application Platform
 
-Before we deploy the application to OpenShift we need to add health checks so that OpenShift can correctly detect if our application is working. For this simple application we will simply leverage another Spring Boot project: Spring Actuator.
+<!-- Before we deploy the application to OpenShift we need to add health checks so that OpenShift can correctly detect if our application is working. For this simple application we will simply leverage another Spring Boot project: Spring Actuator.
 
 **1. Add a health check**
 
@@ -11,9 +11,9 @@ Spring Boot provides a nice feature for health checks called Actuator. Actuator 
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
     &lt;/dependency&gt;
-</pre>
+</pre> -->
 
-**2. Deploy the application to OpenShift**
+**1. Deploy the application to OpenShift**
 
 Run the following command to deploy the application to OpenShift
 
@@ -29,16 +29,10 @@ After the Maven build has finished, it will typically take less than 20 sec for 
 
 ``oc rollout status dc/rhoar-training``{{execute}}
 
-You should see output in the console similar to `replication controller "rhoar-training" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/api/fruits). You should see the same JSON output as the previous step:
+You should see output in the console similar to `replication controller "rhoar-training" successfully rolled out`. If you take another look at your OpenShift web view, you should see that your application now displays on the Overview page.
 
-```json
-[{name":"Cherry"},{name":"Apple"},{name":"Banana"}]
-```
 
-And if you open the [web application](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) the same functionality from the previous steps should still work.
 
 ## Congratulations
 
-You have now learned how to deploy a Spring Boot application to OpenShift Container Platform. This concludes REST Services scenario for Spring Boot. 
-
-Click Summary for more details and suggested next steps.
+You have now learned how to deploy a Spring Boot application to OpenShift Container Platform. In our next step, we will navigate through OpenShift's web console in order to view our application and learn about health checks.

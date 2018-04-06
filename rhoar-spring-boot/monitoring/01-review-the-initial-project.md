@@ -10,26 +10,27 @@ The output should look something like this:
 .
 ├── pom.xml
 └── src
-    ├── main
-    │   ├── fabric8
-    │   │   ├── deployment.yml
-    │   │   └── route.yml
-    │   ├── java
-    │   │   └── com
-    │   │       └── example
-    │   │           └── Application.java
-    │   └── resources
-    │       └── static
-    │           └── index.html
-    └── test
-        └── java
-            └── com
-                └── example
-                    └── ApplicationTests.java
+    └── main
+       ├── fabric8
+       │   ├── deployment.yml
+       │   └── route.yml
+       ├── java
+       │   └── com
+       │       └── example
+       │                ├── Application.java
+       │                └── service
+       │                    └── HomeController.java
+       │           
+       └── resources
+            ├──application-openshift.properties
+            ├──application.properties
+            └── templates
+                └── home.html
+
 ```
 
 
-Except for the `fabric8` directory and the `index.html`, this matches what you would get if you generated an empty project using the [Spring Initializr](https://start.spring.io). For the moment you can ignore the content of the fabric8 folder (we will discuss this later).
+Except for the `fabric8` directory, the `home.html`, and a few config files, this matches what you would get if you generated an empty project using the [Spring Initializr](https://start.spring.io). For the moment you can ignore the content of the fabric8 folder (we will discuss this later).
 
 One thing that differs slightly is the ``pom.xml``{{open}} file.
 
@@ -73,6 +74,4 @@ Before moving on, click in the terminal window and then press **CTRL-C** to stop
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. In the next step we will 
-
-TODO
+You have now successfully executed the first step in this scenario. In the next step we will login to OpenShift and create a new project.
