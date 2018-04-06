@@ -1,18 +1,5 @@
 # Deploy to OpenShift Application Platform
 
-<!-- Before we deploy the application to OpenShift we need to add health checks so that OpenShift can correctly detect if our application is working. For this simple application we will simply leverage another Spring Boot project: Spring Actuator.
-
-**1. Add a health check**
-
-Spring Boot provides a nice feature for health checks called Actuator. Actuator is a project which exposes health data under the API path `/health` that is collected during application runtime automatically. All we need to do to enable this feature is to add the following dependency to ``pom.xml``{{open}} at the **TODO** comment..
-
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add Actuator dependency here -->">
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-      &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-</pre> -->
-
 **1. Deploy the application to OpenShift**
 
 Run the following command to deploy the application to OpenShift
@@ -31,7 +18,13 @@ After the Maven build has finished, it will typically take less than 20 sec for 
 
 You should see output in the console similar to `replication controller "rhoar-training" successfully rolled out`. If you take another look at your OpenShift web view, you should see that your application now displays on the Overview page.
 
+**2. Connection to the application via the Route**
 
+The route is blah blah blah. We need for external connections blah blah.
+We can see this route from the Overview page, under the `ROUTES External Traffic` section.
+Click it, or this link? [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/). 
+
+We should now see the same `Success` page that we saw when we first tested our app locally.
 
 ## Congratulations
 
