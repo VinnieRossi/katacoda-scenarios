@@ -1,6 +1,6 @@
-# Navigate OpenShift and understanding Health Checks
+# Implementing Health Checks
 
-Now that our project has been deployed to OpenShift we are able to see it in OpenShift's web view. From there we can see information about our project and verify that we're able to connect to it through OpenShift.
+Now that our project has been deployed to OpenShift and we've verified that we're able to hit our endpoint, it's time to add a health check to the application.
 
 **1. View Health Checks**
 
@@ -8,7 +8,10 @@ Now our app is up everything is perfect. Except! what if it goes down?
 We need OpenShift to know if the app crashes so that it can spin up another instance. Here is a link [here](https://docs.openshift.org/latest/dev_guide/application_health.html)
 
 Go back to overview and click on your deployment. You should see this image: <IMAGE>
+![OpenShift Console Tab](../../assets/middleware/rhoar-monitoring/application-deployment.png)
+
 Click on `Configuration` and take a look at all the info here. Oh no! We have an error about missing health checks! <IMAGE>
+![OpenShift Console Tab](../../assets/middleware/rhoar-monitoring/missing-health-checks.png)
 
 There are two types of health checks, but ours can serve a multi purpose. We are going to use Spring Actuator since it's a spring library and openshift loves spring.
 Spring Boot provides a nice feature for health checks called Actuator. We're gonna use that. 
@@ -40,7 +43,7 @@ Look at all these other endpoints. You can't hit them without auth. OR put in th
 
 (endpoints)[https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html]
 
-In order to get awesome links, need to disable security. Put this code in this file, but don't do this in prod.
+In order to get awesome links, need to disable security. Put this code in this file, but don't do this in prod. ``application.properties``{{open}}
 
 <pre class="file" data-filename="application.properties" data-target="insert" data-marker="# TODO: Add Security preference here">
 management.security.enabled=false

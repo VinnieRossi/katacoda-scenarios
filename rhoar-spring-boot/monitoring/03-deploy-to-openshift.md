@@ -22,6 +22,8 @@ You should see output in the console similar to `replication controller "rhoar-t
 
 The route is blah blah blah. We need for external connections blah blah.
 We can see this route from the Overview page, under the `ROUTES External Traffic` section.
+![OpenShift Console Tab](../../assets/middleware/rhoar-monitoring/overview-routes.png)
+
 Click it, or this link? [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/). 
 
 We should now see the same `Success` page that we saw when we first tested our app locally.
