@@ -15,10 +15,8 @@ Since a lack of health checks can cause container issues if they crash, OpenShif
 Go back to overview and click on your deployment.
 ![Application Deployment](../../assets/middleware/rhoar-monitoring/application-deployment.png)
 
-![Application Deployment Test](../../assets/middleware/rhoar-monitoring/appDeployment.png)
-
 Click on `Configuration` and we can see the warning message here.
-![Missing Health Checks](../../assets/middleware/rhoar-monitoring/missing-health-checks.png)
+![Missing Health Checks](../../assets/middleware/rhoar-monitoring/missingHealthChecks.png)
 
 
 Since we have a Spring Boot application we have an easy option for implementation of health checks. We're able to pull in the `Spring Actuator` library.
