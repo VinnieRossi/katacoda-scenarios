@@ -50,7 +50,7 @@ Now let's navigate to our health endpoint. Click the link [here]() and we should
 
 The `/health` endpoint isn't the only endpoint that Spring Actuator provides out of the box. We're going to take a closer look at a few of the different endpoints so we can see how they help us with monitoring our newly deployed application, specifically the `/metrics` and `/beans` endpoints. You can look at all the endpoints [here](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html).
 
-Unlike the `/health` endpoint however, some of these endpoints can return sensitive information and require authentication. For simplicity purposes we will be removing this security requirement in order to hit the endpoints, but this is not recommended for a production environment with sensitive data. Pull up the application.properties file ``application.properties``{{open}} and add this code to disable endpoint security.
+Unlike the `/health` endpoint however, some of these endpoints can return sensitive information and require authentication. For simplicity purposes we will be removing this security requirement in order to hit the endpoints, but this is not recommended for a production environment with sensitive data. Pull up the application.properties file ``src/main/resources/application.properties``{{open}} and add this code to disable endpoint security.
 
 <pre class="file" data-filename="src/main/resources/application.properties" data-target="insert" data-marker="# TODO: Add Security preference here">
 management.security.enabled=false
