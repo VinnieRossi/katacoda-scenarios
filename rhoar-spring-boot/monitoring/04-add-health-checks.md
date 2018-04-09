@@ -13,7 +13,7 @@ Our health check will continually poll the application to ensure that the applic
 Since a lack of health checks can cause container issues if they crash, OpenShift will alert you with a warning message if your project is lacking one. 
 
 Go back to overview and click on your deployment.
-![Application Deployment](../../assets/middleware/rhoar-monitoring/application-deployment.png)
+![Application Deployment](../../assets/middleware/rhoar-monitoring/applicationDeployment.png)
 
 Click on `Configuration` and we can see the warning message here.
 ![Missing Health Checks](../../assets/middleware/rhoar-monitoring/missingHealthChecks.png)
