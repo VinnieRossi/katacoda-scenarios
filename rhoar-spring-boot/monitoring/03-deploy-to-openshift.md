@@ -20,14 +20,13 @@ You should see output in the console similar to `replication controller "rhoar-t
 
 **2. Connection to the application via the Route**
 
-The route is blah blah blah. We need for external connections blah blah.
-We can see this route from the Overview page, under the `ROUTES External Traffic` section.
+Now that our application is deployed to OpenShift, how do external users access it? The answer is with a route. By using a route, we are able to expose our services and allow for external connections at a given hostname. We can see the route that was created for our application from the Overview page, under the `ROUTES External Traffic` section.
 ![OpenShift Console Tab](../../assets/middleware/rhoar-monitoring/overview-routes.png)
 
-Click it, or this link? [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/). 
+Either click on the route link through the OpenShift web view, or click this link [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/).
 
 We should now see the same `Success` page that we saw when we first tested our app locally.
 
 ## Congratulations
 
-You have now learned how to deploy a Spring Boot application to OpenShift Container Platform. In our next step, we will navigate through OpenShift's web console in order to view our application and learn about health checks.
+You have now learned how to deploy a Spring Boot application to OpenShift Container Platform, as well as access the application via an external route. In our next step, we will navigate through OpenShift's web console in order to view our application and learn about health checks.
