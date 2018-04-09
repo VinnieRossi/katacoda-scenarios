@@ -52,7 +52,7 @@ The `/health` endpoint isn't the only endpoint that Spring Actuator provides out
 
 Unlike the `/health` endpoint however, some of these endpoints can return sensitive information and require authentication. For simplicity purposes we will be removing this security requirement in order to hit the endpoints, but this is not recommended for a production environment with sensitive data. Pull up the application.properties file ``application.properties``{{open}} and add this code to disable endpoint security.
 
-<pre class="file" data-filename="src\main\resources\application.properties" data-target="insert" data-marker="# TODO: Add Security preference here">
+<pre class="file" data-filename="src/main/resources/application.properties" data-target="insert" data-marker="# TODO: Add Security preference here">
 management.security.enabled=false
 </pre>
 
