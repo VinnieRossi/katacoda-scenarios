@@ -13,10 +13,10 @@ Our health check will continually poll the application to ensure that the applic
 Since a lack of health checks can cause container issues if they crash, OpenShift will alert you with a warning message if your project is lacking one. 
 
 Go back to overview and click on your deployment.
-![OpenShift Console Tab](../../assets/middleware/rhoar-monitoring/application-deployment.png)
+![Application Deployment](../../assets/middleware/rhoar-monitoring/application-deployment.png)
 
 Click on `Configuration` and we can see the warning message here.
-![OpenShift Console Tab](../../assets/middleware/rhoar-monitoring/missing-health-checks.png)
+![Missing Health Checks](../../assets/middleware/rhoar-monitoring/missing-health-checks.png)
 
 
 Since we have a Spring Boot application we have an easy option for implementation of health checks. We're able to pull in the `Spring Actuator` library.
@@ -56,19 +56,19 @@ Unlike the `/health` endpoint however, some of these endpoints can return sensit
 management.security.enabled=false
 </pre>
 
-Now redeploy the application so the changes are reflected and hit the `/health` endpoint again ([here]()). Since we've removed the security we should be getting a new response with much more content that looks something like:
+Now redeploy the application so the changes are reflected and hit the `/health` endpoint again [here](). Since we've removed the security we should be getting a new response with much more content that looks something like:
 
 ```json
 
 ```
 
-Navigating to the `/metrics` endpoint ([here]()) will display different types of metric data about the application including memory usage, heap, processors, threads, classes loaded, and some HTTP metrics in a response that looks like:
+Navigating to the `/metrics` endpoint [here]() will display different types of metric data about the application including memory usage, heap, processors, threads, classes loaded, and some HTTP metrics in a response that looks like:
 
 ```json
 
 ```
 
-In addition to the different monitoring endpoints we also have informational endpoints like the `/beans` endpoint ([here]()), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful when debugging your applications in OpenShift.
+In addition to the different monitoring endpoints we also have informational endpoints like the `/beans` endpoint [here](), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful when debugging your applications in OpenShift.
 
 ## Congratulations
 
