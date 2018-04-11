@@ -12,10 +12,12 @@ Our health check will continually poll the application to ensure that the applic
 
 Since a lack of health checks can cause container issues if they crash, OpenShift will alert you with a warning message if your project is lacking one. 
 
-Click on Application and select your deployment.
+Click on Applications => Deployment and then select your deployment. You should see something like this: 
+
 ![Application Deployment](../../assets/middleware/rhoar-monitoring/applicationDeployment.png)
 
-Click on `Configuration` and we can see the warning message here.
+Click on `Configuration` and we can see the warning message here:
+
 ![Missing Health Checks](../../assets/middleware/rhoar-monitoring/missingHealthChecks.png)
 
 
@@ -36,7 +38,9 @@ Run the following command again to re-deploy the application to OpenShift:
 
 ``mvn package fabric8:deploy -Popenshift``{{execute}}
 
-After we navigate to our health endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/health) we should see the following response, confimring that our application is up and running properly:
+Now that we've added Spring Actuator, we're able to hit their provided `/health` endpoint. We can navigate to it by either adding `/health` to our landing page, or by clicking [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/health) 
+
+We should now see the following response, confimring that our application is up and running properly:
 
 ```json 
 {"status":"UP"}
@@ -54,7 +58,11 @@ Unlike the `/health` endpoint some of these endpoints can return sensitive infor
 management.security.enabled=false
 </pre>
 
-Now redeploy the application ``mvn package fabric8:deploy -Popenshift``{{execute}} so the changes are reflected and hit the `/health` endpoint again [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/health). Since we've removed the security we should be getting a new response with much more content that looks something like:
+If we redeploy the application again with: 
+
+``mvn package fabric8:deploy -Popenshift``{{execute}} 
+
+We can hit the `/health` endpoint again [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/health) and we'll notice some differences. Since we've removed the security we should be getting a new response with much more content that looks something like:
 
 ```json
 {"status":"UP","diskSpace":{"status":"UP","total":10725883904,"free":10131124224,"threshold":10485760}}
@@ -66,7 +74,7 @@ Navigating to the `/metrics` endpoint [here](http://rhoar-training-dev.[[HOST_SU
 {"mem":429321,"mem.free":306191,"processors":4,"instance.uptime":49984,"uptime":55113,"systemload.average":0.45,"heap.committed":372224,"heap.init":63488,"heap.used":66032,"heap":899584,"nonheap.committed":59328,"nonheap.init":2496,"nonheap.used":57098,"nonheap":0,"threads.peak":26,"threads.daemon":22,"threads.totalStarted":31,"threads":24,"classes":6994,"classes.loaded":6994,"classes.unloaded":0,"gc.ps_scavenge.count":14,"gc.ps_scavenge.time":141,"gc.ps_marksweep.count":2,"gc.ps_marksweep.time":130,"httpsessions.max":-1,"httpsessions.active":0,"gauge.response.health":2.0,"counter.status.200.health":5}
 ```
 
-In addition to the different monitoring endpoints we also have informational endpoints like the `/beans` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/beans), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful when debugging your applications in OpenShift.
+In addition to the different monitoring endpoints we also have informational endpoints like the `/beans` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/beans), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful while debugging your applications in OpenShift.
 
 ## Congratulations
 

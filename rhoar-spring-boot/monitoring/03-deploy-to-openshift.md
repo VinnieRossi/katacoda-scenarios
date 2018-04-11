@@ -25,7 +25,8 @@ Now that our application is deployed to OpenShift, how do external users access 
 
 Either click on the route link through the OpenShift web view, or click this link [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/).
 
-We should now see the same `Success` page that we saw when we first tested our app locally.
+We should now see the same `Success` page that we saw when we first tested our app locally:
+
 ![Success](../../assets/middleware/rhoar-monitoring/success.png)
 
 ## Congratulations
