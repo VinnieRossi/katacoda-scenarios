@@ -11,10 +11,9 @@
       "code": "env-init.sh"
     },
     "steps": [
-      { "title": "Step 1", "text": "01-download-the-initial-project.md" },
-      { "title": "Step 2", "text": "02-load-into-sts.md" },
-      { "title": "Step 3", "text": "03-deploy-to-openshift-launcher.md" },
-      { "title": "Step 4", "text": "03-deploy-to-openshift-fabric8.md" }
+      { "title": "Step 1", "text": "01-review-the-initial-project.md" },
+      { "title": "Step 2", "text": "02-login-to-openshift.md" },
+      { "title": "Step 3", "text": "03-deploy-to-openshift.md" }
     ],
     "finish": {
       "text": "99-outro.md"

@@ -1,46 +1,35 @@
-# Download the initial project
+# Review the base structure of the application
 
-When developing a Spring application a great place to start is with the [Spring Initializr](https://start.spring.io) tool. The website will allow you to select from a few simple settings and choose different libraries to include to help you get started with a skeleton Spring application that's ready to go!
+For your convenience, this scenario has been created with a base project using the Java programming language and the Apache Maven build tool.
 
-Go ahead and navigate to the [Spring Initializr](https://start.spring.io) tool and switch your view to the full version. Scrolling down we can start to see a number of libraries that Spring can automatically include with your download if selected. Since we're using a very simple application we won't need to include any additional libraries, but it might be worthwhile to read up on ones that interest you.
+Initially the project is almost empty and doesn't do anything. Start by reviewing the base project's content by executing a ``tree``{{execute}} in your terminal.
 
-We already have a fully set up Spring application set up but feel free to follow along and download the application locally as well.
-
-First thing we'll do is run a ``tree``{{execute}} command to get an idea of what the default file structure is.
-
-
-
-Talk about spring init and show all libraries, pick a few to add on
-after download, tell thim to hit tree and it will look just like this: (tree)
-If you want to follow along locally, you can download the project and run any commands done in here on your personal machine.
-Mention differences of pom
-test
-verify
-
-END
+The output should look something like this:
 
 ```sh
 .
 ├── pom.xml
 └── src
-    └── main
-        ├── fabric8
-        │   ├── credentials-secret.yml
-        │   ├── deployment.yml
-        │   └── route.yml
-        ├── java
-        │   └── com
-        │       └── example
-        │           ├── Application.java
-        │           └── service
-        │               ├── Fruit.java
-        │               └── FruitRepository.java
-        └── resources
-            ├── application-openshift.properties
-            ├── import.sql
-            └── static
-                └── index.html
+    ├── main
+    │   ├── fabric8
+    │   │   ├── deployment.yml
+    │   │   └── route.yml
+    │   ├── java
+    │   │   └── com
+    │   │       └── example
+    │   │           └── Application.java
+    │   └── resources
+    │       └── static
+    │           └── index.html
+    └── test
+        └── java
+            └── com
+                └── example
+                    └── ApplicationTests.java
 ```
+
+
+Except for the `fabric8` directory and the `index.html`, this matches what you would get if you generated an empty project using the [Spring Initializr](https://start.spring.io). For the moment you can ignore the content of the fabric8 folder (we will discuss this later).
 
 One thing that differs slightly is the ``pom.xml``{{open}} file.
 
@@ -103,4 +92,4 @@ Before moving on, click in the terminal window and then press **CTRL-C** to stop
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. In the next step we will load the project into an IDE so we can further modify our application. This example is extremely simple as it is meant to only introduce you to Spring Boot and RHOAR.
+You have now successfully executed the first step in this scenario. In the next step we will connect to OpenShift to deploy our application. This example is extremely simple as it is meant to only introduce you to Spring Boot and RHOAR.
