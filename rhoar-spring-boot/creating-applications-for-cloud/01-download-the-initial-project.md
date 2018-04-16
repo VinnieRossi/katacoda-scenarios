@@ -2,15 +2,44 @@
 
 When developing a Spring application a great place to start is with the [Spring Initializr](https://start.spring.io) tool. The website will allow you to select from a few simple settings and choose different libraries to include to help you get started with a skeleton Spring application that's ready to go!
 
-Go ahead and navigate to the [Spring Initializr](https://start.spring.io) tool and switch your view to the full version. Scrolling down we can start to see a number of libraries that Spring can automatically include with your download if selected. Since we're using a very simple application we won't need to include any additional libraries, but it might be worthwhile to read up on ones that interest you.
+Go ahead and navigate to the [Spring Initializr](https://start.spring.io) tool and switch your view to the full version. 
 
-We already have a fully set up Spring application set up but feel free to follow along and download the application locally as well.
+![Full Version](../../assets/middleware/rhoar-creating-applications-for-cloud/full-version.png)
 
-First thing we'll do is run a ``tree``{{execute}} command to get an idea of what the default file structure is.
+Scrolling down we can start to see a number of libraries that Spring can automatically include with your download when selected. We're using a very simple application that won't need to include any additional libraries, but it might be worthwhile to read up on ones that interest you. Keep all of the default settings and click the `Generate Project` button to generate a zip file that contains our fully set up application. All that's left is to navigate to the download location and begin unzipping the file. 
+
+>**NOTE:** We already have a Spring project set up in this environment that we're going to be using for display purposes, but make sure to follow along and download the application locally as well.
+
+Now that we have our project downloaded let's load it into an IDE for further modification. Since we're using a Spring application we're going to be using `Spring Tool Suite`(STS) for our IDE, which is an Eclipse-based development environment that's been customized specifically for Spring application development. You can download STS [here](https://spring.io/tools/sts/all) and can read about some of the benefits and features [here](https://spring.io/tools/sts).
+
+After installing STS we need to load up our Spring Initializr project. Click `File` and `Open Projects from File System...`.
+
+![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/import-project.png)
+
+From there simply click the `Directory...` button and navigate to the downloaded project folder. Click `Finish` and STS will load the project for you. If everything went successfully, we should end up with a file structure that looks like this:
+
+![Project Structure](../../assets/middleware/rhoar-creating-applications-for-cloud/project-structure.png)
 
 
 
-Talk about spring init and show all libraries, pick a few to add on
+```sh
+.
+├── pom.xml
+└── src
+    └── main
+       ├── java
+       │   └── com
+       │       └── example
+       │                └──DemoApplication.java
+       │           
+       └── resources
+            ├── application.properties
+            └── templates
+```
+
+
+
+
 after download, tell thim to hit tree and it will look just like this: (tree)
 If you want to follow along locally, you can download the project and run any commands done in here on your personal machine.
 Mention differences of pom
@@ -19,28 +48,8 @@ verify
 
 END
 
-```sh
-.
-├── pom.xml
-└── src
-    └── main
-        ├── fabric8
-        │   ├── credentials-secret.yml
-        │   ├── deployment.yml
-        │   └── route.yml
-        ├── java
-        │   └── com
-        │       └── example
-        │           ├── Application.java
-        │           └── service
-        │               ├── Fruit.java
-        │               └── FruitRepository.java
-        └── resources
-            ├── application-openshift.properties
-            ├── import.sql
-            └── static
-                └── index.html
-```
+
+
 
 One thing that differs slightly is the ``pom.xml``{{open}} file.
 
