@@ -1,6 +1,6 @@
 # Deploy to OpenShift Application Platform with Launcher
 
-Now that we have our working application set up locally, we want to deploy it on the OpenShift Platform. One of the easiest ways is to use the built in S2I tool within the RHOAR launcher.
+Now that we have our working application set up locally, we want to deploy it on the OpenShift Platform. One of the easiest ways is to use the built in S2I tool.
 
 **1. Create Git Repository**
 
@@ -41,4 +41,4 @@ Go to overview and you'll see your application in the process of building. Once 
 
 ## Congratulations
 
-You have now learned how to deploy a Spring Boot application to OpenShift Container Platform through the Source-To-Image (S2I) process. In the next step, we'll take a look at how to do the same process through the command line using Fabric8.
+You have now learned how to deploy a Spring Boot application to OpenShift Container Platform through the Source-To-Image (S2I) process.

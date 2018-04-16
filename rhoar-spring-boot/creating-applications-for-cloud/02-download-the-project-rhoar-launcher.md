@@ -1,47 +1,30 @@
 # Download the initial project
 
-When developing a Spring application a great place to start is with the [Spring Initializr](https://start.spring.io) tool. The website will allow you to select from a few simple settings and choose different libraries to include to help you get started with a skeleton Spring application that's ready to go!
+While the [Spring Initializr](https://start.spring.io) tool very handy for creating Spring Applications quickly, there was still some configuration that was required on our side to get the project into a ready state for OpenShift. Luckily OpenShift provides a tool that will allow us to skip these additional steps when generating a Spring Boot application that's destined for OpenShift deployment!
 
-Go ahead and navigate to the [Spring Initializr](https://start.spring.io) tool and switch your view to the full version by clicking the link: 
+**1. Introducing the RHOAR Launcher** 
+The Red Hat OpenShift Application Runtime (RHOAR) Launcher is a tool that will allow us to generate a Spring Boot application with the exact configurations that we need to plug into OpenShift in as few steps as possible. It's a quick and easy-to-follow multi-step process that can be found [here](https://developers.redhat.com/launch/filtered-wizard/all). It will require an OpenShift account, so make sure that you have your login information handy.
 
-![Full Version](../../assets/middleware/rhoar-creating-applications-for-cloud/full-version.png)
+To get started, simply click the `Launch Your Project` button.
 
-Scrolling down we can start to see a number of libraries that Spring can automatically include with your download when selected. Since we're going to be using a skeleton application we don't need to include any additional dependencies. Keep all of the other default settings and click the `Generate Project` button to generate a zip file that contains our fully set up application. All that's left is to navigate to the download location and begin unzipping the file. 
+**2. Running through the Launcher**
+The first section that we run into is asking about Deployment type. The `OpenShift Online` deployment will take multiple steps for you, creating a github repository with all of the new project's code and automatically hooking up Continuous Delivery on the newly created respository's master branch. That's pretty powerful! But for learning purposes, we're going to stick with the second option to `Build and run locally`. Click the button to continue.
 
-Now that we have our project downloaded let's load it into an IDE for further modification. Since we're using a Spring application we're going to be using `Spring Tool Suite`(STS) for our IDE, which is an Eclipse-based development environment that's been customized specifically for Spring application development. You can download STS [here](https://spring.io/tools/sts/all) and can read about some of the benefits and features [here](https://spring.io/tools/sts).
+The next page is introducing us to a few different types of base projects known as "Missions". They're simple projects that have been created with a mission in mind, one simple function that they wish to convey to the user. For simplicity's sake, we're going to choose the `REST API Level 0` mission, a basic application which will just respond to the user through a simple REST API. Select the radio button and click Next:
 
-After installing STS we need to load up our Spring Initializr project. Click `File` and `Open Projects from File System...`.
+!
 
-![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/import-project.png)
+The next choice is Runtime. Since we're sticking with Spring Boot, this one is an easy choice. Click Spring Boot and then Next.
 
-From there simply click the `Directory...` button and navigate to the downloaded project folder. Click `Finish` and STS will load the project for you. If everything went successfully, we should end up with a file structure that looks like this:
+!
 
-![Project Structure](../../assets/middleware/rhoar-creating-applications-for-cloud/project-structure.png)
+This screen will ask for project information. We can keep the defaults and click Next again.
 
-Now our project has been loaded into STS and it's ready to modify. If we wanted to add any additional dependencies or libraries after the initalize step, we can do so by going into the pom file and adding them manually.
+This brings us to the review page. If everything looks good, go ahead and click the `Download as ZIP file` button to get your base project locally. 
 
-<!-- You can also verify by running the ``tree``{{execute}} command.
+Unzip the application and load it into STS (same as before) and take a look at the files. You'll see that the project already has the fabric8 folder and the ``pom.xml``{{open}} file has already had some configurations built in for OpenShift. Our application is ready to be deployed.
 
-```sh
-.
-├── pom.xml
-└── src
-    ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── example
-    │   │           └── demo
-    │   │               └── DemoApplication.java
-    │   └── resources
-    │       └── application.properties
-    └── test
-        └── java
-            └── com
-                └── example
-                    └── demo
-                        └── DemoApplicationTests.java
-``` -->
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. In next step we will go over one option to deploy our application to the OpenShift Container Platform. This example is extremely simple as it is meant to only introduce you to Spring Boot and RHOAR.
+You have now successfully executed the second step in this scenario. In next step we will go over one option to deploy our application to the OpenShift Container Platform via Fabric8. This example is extremely simple as it is meant to only introduce you to Spring Boot and RHOAR.
