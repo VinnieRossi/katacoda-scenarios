@@ -41,6 +41,4 @@ Go to overview and you'll see your application in the process of building. Once 
 
 ## Congratulations
 
-You have now learned how to deploy a Spring Boot application to OpenShift Container Platform.
-
-Click Summary for more details and suggested next steps.
+You have now learned how to deploy a Spring Boot application to OpenShift Container Platform through the Source-To-Image (S2I) process. In the next step, we'll take a look at how to do the same process through the command line using Fabric8.
