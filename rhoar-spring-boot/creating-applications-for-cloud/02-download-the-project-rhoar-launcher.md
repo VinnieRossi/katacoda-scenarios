@@ -28,7 +28,8 @@ Now that we have our project downloaded let's load it into an IDE for further mo
 
 After installing STS we need to load up our Spring Initializr project. Click `File` and `Open Projects from File System...`.
 
-![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/import-project.png)
+<!-- ![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/import-project.png)  -->
+![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/rest-api.png)
 
 From there simply click the `Directory...` button and navigate to the downloaded project folder. Click `Finish` and STS will load the project for you. If everything went successfully, we should end up with a file structure that looks like this:
 
