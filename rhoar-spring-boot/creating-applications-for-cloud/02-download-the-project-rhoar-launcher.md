@@ -77,7 +77,7 @@ spec:
     name: ${project.artifactId}
 ```
 
-There's also a very useful README file included that gives more detail about the application and the process required to modify and test it. Check out [this link](https://appdev.openshift.io/docs/spring-boot-runtime.html) for more information about Spring Boot within a Fabric8 launcher context.
+There's also a very useful ``README.adoc``{{open}} file included that gives more detail about the application and the process required to modify and test it. Check out [this link](https://appdev.openshift.io/docs/spring-boot-runtime.html) for more information about Spring Boot within a Fabric8 launcher context.
 
 
 ## Congratulations
