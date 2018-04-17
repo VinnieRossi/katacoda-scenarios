@@ -1,9 +1,9 @@
 # Download the initial project
 
-While the [Spring Initializr](https://start.spring.io) tool very handy for creating Spring Applications quickly, there was still some configuration that was required on our side to get the project into a ready state for OpenShift. Luckily OpenShift provides a tool that will allow us to skip these additional steps when generating a Spring Boot application that's destined for OpenShift deployment!
+While the [Spring Initializr](https://start.spring.io) tool very handy for creating Spring Applications quickly, there would still be some configuration required on our side to get the project into a ready state for OpenShift. Luckily OpenShift provides a tool that will allow us to skip these additional steps when generating a Spring Boot application that's destined for OpenShift deployment!
 
 **1. Introducing the RHOAR Launcher** 
-The Red Hat OpenShift Application Runtime (RHOAR) Launcher is a tool that will allow us to generate a Spring Boot application with the exact configurations that we need to plug into OpenShift in as few steps as possible. It's a quick and easy-to-follow multi-step process that can be found [here](https://developers.redhat.com/launch/filtered-wizard/all). It will require an OpenShift account, so make sure that you have your login information handy.
+The Red Hat OpenShift Application Runtime (RHOAR) Launcher is a tool that will allow us to generate a Spring Boot application with the exact configurations that we need to plug into OpenShift in as few steps as possible. It's a quick and easy-to-follow multi-step process that can be found [here](https://launch.openshift.io/launch/filtered-wizard/all). It will require an OpenShift account, so make sure that you have your login information handy.
 
 To get started, simply click the `Launch Your Project` button.
 
@@ -22,7 +22,62 @@ This screen will ask for project information. We can keep the defaults and click
 
 This brings us to the review page. If everything looks good, go ahead and click the `Download as ZIP file` button to get your base project locally. 
 
-Unzip the application and load it into STS (same as before) and take a look at the files. You'll see that the project already has the fabric8 folder and the ``pom.xml``{{open}} file has already had some configurations built in for OpenShift. Our application is ready to be deployed.
+**3. Load project into STS**
+
+Now that we have our project downloaded let's load it into an IDE for further modification. Since we're using a Spring application we're going to be using `Spring Tool Suite`(STS) for our IDE, which is an Eclipse-based development environment that's been customized specifically for Spring application development. You can download STS [here](https://spring.io/tools/sts/all) and can read about some of the benefits and features [here](https://spring.io/tools/sts).
+
+After installing STS we need to load up our Spring Initializr project. Click `File` and `Open Projects from File System...`.
+
+![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/import-project.png)
+
+From there simply click the `Directory...` button and navigate to the downloaded project folder. Click `Finish` and STS will load the project for you. If everything went successfully, we should end up with a file structure that looks like this:
+
+![Project Structure](../../assets/middleware/rhoar-creating-applications-for-cloud/project-structure.png)
+
+**4. Spring Initializr vs Launcher**
+
+If you downloaded a Spring Initializr project on the previous step you can take a look and see some of the differences between the two generated projects.
+
+Other than the application code, some of the main differences are the addition of a `fabric8` folder and multiple changes in the pom file. 
+
+Many of the changes in the pom files are simply adding references for the dependencies, but we've also added a profile specifically for OpenShift that looks like this:
+
+```xml
+    <profile>
+      <id>openshift-it</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <configuration>
+              <systemPropertyVariables>
+                <app.name>${project.artifactId}</app.name>
+              </systemPropertyVariables>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+      <activation />
+    </profile>
+```
+
+As for the `fabric8` folder, it contains one file named `route.yml` which contains metadata about the project:
+
+```json
+apiVersion: v1
+kind: Route
+metadata:
+  name: ${project.artifactId}
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: ${project.artifactId}
+```
+
+There's also a very useful README file included that gives more detail about the application and the process required to modify and test it. Check out [this link](https://appdev.openshift.io/docs/spring-boot-runtime.html) for more information about Spring Boot within a Fabric8 launcher context.
 
 
 ## Congratulations
