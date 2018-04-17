@@ -12,7 +12,7 @@ The first section that we run into is asking about Deployment type. The `OpenShi
 
 The next page is introducing us to a few different types of base projects known as "Missions". They're simple projects that have been created with a mission in mind, one simple function that they wish to convey to the user. For simplicity's sake, we're going to choose the `REST API Level 0` mission, a basic application which will just respond to the user through a simple REST API. Select the radio button and click Next:
 
-![REST API](../../assets/middleware/rhoar-creating-applications-for-cloud/rest-api.png)
+![REST API](../../assets/middleware/rhoar-creating-applications-for-cloud/rest-api-mini.png)
 
 The next choice is Runtime. Since we're sticking with Spring Boot, this one is an easy choice. Click Spring Boot and then Next.
 
@@ -28,8 +28,7 @@ Now that we have our project downloaded let's load it into an IDE for further mo
 
 After installing STS we need to load up our Spring Initializr project. Click `File` and `Open Projects from File System...`.
 
-<!-- ![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/import-project.png)  -->
-![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/rest-api.png)
+![Import Project](../../assets/middleware/rhoar-creating-applications-for-cloud/import-project.png)
 
 From there simply click the `Directory...` button and navigate to the downloaded project folder. Click `Finish` and STS will load the project for you. If everything went successfully, we should end up with a file structure that looks like this:
 
