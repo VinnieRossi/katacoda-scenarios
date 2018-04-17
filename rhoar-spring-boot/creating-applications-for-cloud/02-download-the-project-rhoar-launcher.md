@@ -16,7 +16,7 @@ The next page is introducing us to a few different types of base projects known 
 
 The next choice is Runtime. Since we're sticking with Spring Boot, this one is an easy choice. Click Spring Boot and then Next.
 
-![Spring Boot](../../assets/middleware/rhoar-creating-applications-for-cloud/spring-boot.png)
+![Spring Boot](../../assets/middleware/rhoar-creating-applications-for-cloud/spring-boot-mini.png)
 
 This screen will ask for project information. We can keep the defaults and click Next again.
 
