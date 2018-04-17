@@ -26,7 +26,7 @@ From there simply click the `Directory...` button and navigate to the downloaded
 Now our project has been loaded into STS and it's ready to modify. However in order for our newly generated application to be fully ready for OpenShift deployment, we have to make quite a few changes.
 
 **3. Add Fabric8 for deployment**
-
+If we want to make our newly downloaded application ready for deployment, we're going to have to make some changes to the configuration.
 
 
 ## Congratulations

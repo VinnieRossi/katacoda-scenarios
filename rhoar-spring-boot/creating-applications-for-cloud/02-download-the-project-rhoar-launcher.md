@@ -12,11 +12,11 @@ The first section that we run into is asking about Deployment type. The `OpenShi
 
 The next page is introducing us to a few different types of base projects known as "Missions". They're simple projects that have been created with a mission in mind, one simple function that they wish to convey to the user. For simplicity's sake, we're going to choose the `REST API Level 0` mission, a basic application which will just respond to the user through a simple REST API. Select the radio button and click Next:
 
-!
+![REST API](../../assets/middleware/rhoar-creating-applications-for-cloud/rest-api.png)
 
 The next choice is Runtime. Since we're sticking with Spring Boot, this one is an easy choice. Click Spring Boot and then Next.
 
-!
+![Spring Boot](../../assets/middleware/rhoar-creating-applications-for-cloud/spring-boot.png)
 
 This screen will ask for project information. We can keep the defaults and click Next again.
 

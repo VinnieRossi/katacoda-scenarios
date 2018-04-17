@@ -32,11 +32,7 @@ The `mvn package` piece of the above command instructs Maven to run the package 
 
 For the deployment to OpenShift we are using the [Fabric8](https://fabric8.io/) tool through the `fabric8-maven-plugin` which is configured in our ``pom.xml``{{open}} (found in the `<profiles/>` section). Configuration files for Fabric8 are contained in the ``src/main/fabric8``{{open}} folder mentioned earlier.
 
-This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify that everything is started by running the following command:
-
-``oc rollout status dc/XXXXXX``{{execute}}
-
-You should see output in the console similar to `replication controller "XXXXXX" successfully rolled out`. Then you can either go to the OpenShift web console and click on the route or click [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com). You should see the same page as before, the only difference was in our strategy of deployment.
+This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify by going into the OpenShift web console and clicking on the route. You should see the same page as before, the only difference was in our strategy of deployment.
 
 ## Congratulations
 
