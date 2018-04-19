@@ -19,9 +19,13 @@ That's all there is to it!
 **2. Test changes**
 
 Now that we've modified the ConfigMap and deployed our changes, let's test the greeting service and see if it's returning our new value.
-Put in a test value and click the button. Now instead of seeing `Hello <name>...`, we should be seeing `Bonjour <name>...`! 
+Put in a test value and click the button. Now instead of seeing `Hello <name>...`, we should be seeing: 
 
-![Bonjour Message](../../assets/middleware/rhoar-microservices/bonjour-message-minier.png)
+`Bonjour %s from a ConfigMap!`
+
+<!-- `Bonjour <name>...`! 
+
+![Bonjour Message](../../assets/middleware/rhoar-microservices/bonjour-message-minier.png) -->
 
 This means that we were able to modify our application behavoir through External Configuration of the `application.properties` file using a ConfigMap without having to even take down the application. That's pretty powerful!
 
