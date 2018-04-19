@@ -36,7 +36,7 @@ Now that our application is deployed, navigate to our route in the OpenShift Web
 
 As the page suggests, we're going to put in a name and let our greeting service reply with a given greeting. Since our default value is ``Hello %s from a ConfigMap!``, that's what we should see after we fill in the textbox and click the button. And indeed that's what we see:
 
-![Hello Message](../../assets/middleware/rhoar-microservices/hello-message.png)
+![Hello Message](../../assets/middleware/rhoar-microservices/hello-message-mini.png)
 
 ## Congratulations
 
