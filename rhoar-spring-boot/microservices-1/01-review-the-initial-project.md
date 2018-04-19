@@ -6,7 +6,8 @@ For your convenience, this scenario has been created using the OpenShift Launche
 **1. Understanding the Application**
 
 The project is a simple Greeting application, where a user inputs a name and is greeted by our service. Opening up our ``greeting-service\src\main\java\io\openshift\booster\service\GreetingController.java``{{open}} file we can see the logic used to greet our user. The interesting part of this logic is right here, where we retrieve the message:
-
+``pom.xml``{{open}}
+``greeting-service\pom.xml``{{open}}
 ```java
 String message = String.format(properties.getMessage(), name);
 ```
