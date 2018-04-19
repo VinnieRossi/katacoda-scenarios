@@ -4,11 +4,11 @@
 
 Before we deploy the application, we have to make a few changes so our application runs smoothly using External Configurations.
 
-The first step is we're going to assign view access rights to the our deveoper account. We have to do this before deploying the application, so that it's able to access the OpenShift API in order to read the contents of the ConfigMap. We can do that with the following command:
+The first step is we're going to assign view access rights to the our deveoper account. We have to do this before deploying the application so that it's able to access the OpenShift API and read the contents of the ConfigMap. We can do that with the following command:
 
 ``oc policy add-role-to-user view -n $(oc project -q) -z default``{{execute}}
 
-The next step is to create our ConfigMap configuration and deploy it to OpenShift using:
+We should see `role "view" added: "default"` as output. The next step is to create our ConfigMap configuration and deploy it to OpenShift using:
 
 ``oc create configmap app-config --from-file=greeting-service/src/main/etc/application.properties``{{execute}}
 
@@ -26,15 +26,19 @@ There's a lot that happens here so lets break it down:
 
 The `mvn package` piece of the above command instructs Maven to run the package lifecycle. This builds a Spring Boot JAR file which is a Fat Jar containing all dependencies necessary to run our application.
 
-For the deployment to OpenShift we are using the [Fabric8](https://fabric8.io/) tool through the `fabric8-maven-plugin` which is configured in our ``pom.xml``{{open}} (found in the `<profiles/>` section). Configuration files for Fabric8 are contained in the `src/main/fabric8` folder mentioned earlier.
+For the deployment to OpenShift we are using the [Fabric8](https://fabric8.io/) tool through the `fabric8-maven-plugin` which is configured in our ``pom.xml``{{open}} (found in the `<profiles/>` section).
 
-**3. Connection to the application via the Route**
+Now that our application is deployed, navigate to our route in the OpenShift Web View or click [here](http://spring-boot-configmap-greeting-dev.2886795361-80-simba02.environments.katacoda.com/). We should see the following screen, meaning everything was successful:
+[TEST](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/)
 
-Now that our application is deployed to OpenShift, how do external users access it? The answer is with a route. By using a route, we are able to expose our services and allow for external connections at a given hostname. Open the OpenShift web view and we can see the route that was created for our application. Navigate to the Overview page and expand our deployment tab. Under the `ROUTES External Traffic` section we should see our provided route.
-![Routes](../../assets/middleware/rhoar-monitoring/overviewRoutes.png)
+![Greeting Service](../../assets/middleware/rhoar-microservices/greeting-service.png)
 
+**3. Test functionality**
 
+As the page suggests, we're going to put in a name and let our greeting service reply with a given greeting. Since our default value is ``Hello %s from a ConfigMap!``, that's what we should see after we fill in the textbox and click the button. And indeed that's what we see:
+
+!
 
 ## Congratulations
 
-You have now learned how to deploy a Spring Boot application to OpenShift Container Platform, as well as access the application via an external route. In our next step, we will navigate through OpenShift's web console in order to view our application and learn about health checks.
+We've now deployed our application to OpenShift and we're ready to see how we can modify certain aspects of our application without downtime through the use of External Configuration via our ConfigMap.
