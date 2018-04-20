@@ -21,6 +21,15 @@ Either click on the route link through the OpenShift web view or click this link
 
 ![Circuit Breaker page](../../assets/middleware/rhoar-microservices/circuit-mainpage.png)
 
+
+**3. Test current functionality**
+
+``curl http://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/greeting``{{execute}}
+
+``curl -X PUT -H "Content-Type: application/json" -d '{"state": "fail"}' http://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/state``{{execute}}
+
+``curl http://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/greeting``{{execute}}
+
 ## Congratulations
 
 You have now learned how to deploy a Spring Boot application to OpenShift Container Platform and we've tested our current application. In our next step, we will trip the Circuit breaker and see how the functionality changes.
