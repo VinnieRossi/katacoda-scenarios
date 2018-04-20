@@ -5,15 +5,15 @@ Now that we know both of our services are online and everything is working, let'
 
 Pull up the web view and navigate to the Overview page. We should see both of our services here:
 
-!
+![Overview](../../assets/middleware/rhoar-microservices/overview-applications.png)
 
 Expand the `spring-boot-circuit-breaker-name` service and we should see that we currently have 1 pod up:
 
-!
+![One pod](../../assets/middleware/rhoar-microservices/one-pod.png)
 
 Scale down our `spring-boot-circuit-breaker-name` service from 1 to 0, effectively taking down our service. We should get a warning about what we're about to do:
 
-!
+![Zero pods](../../assets/middleware/rhoar-microservices/zero-pods.png)
 
 Now that our Name Service is down, let's see what happens when we repeat our previosu command:
 
@@ -33,7 +33,7 @@ Our application is now returning our failure value due to the closed circuit bre
 
 Follow the previous steps to get to our Name Service, except this time scale *up* from 0 pods to 1.
 
-!
+![Scale Up](../../assets/middleware/rhoar-microservices/scale-up.png)
 
 After we confirm that our Name service is up and running on a pod, let's hit our greeting service again:
 
