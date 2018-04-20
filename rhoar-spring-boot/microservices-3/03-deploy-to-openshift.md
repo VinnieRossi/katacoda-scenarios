@@ -14,7 +14,7 @@ For the deployment to OpenShift we are using the [Fabric8](https://fabric8.io/) 
 
 **2. Connection to the application**
 
-Now that our application is deployed, navigate to our route in the OpenShift Web View or click [here](https://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/). We should see the following header, meaning everything was successful:
+Now that our application is deployed, navigate to our route in the OpenShift Web View or click [here](http://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/). We should see the following header, meaning everything was successful:
 
 ![Circuit Breaker page](../../assets/middleware/rhoar-microservices/circuit-mainpage.png)
 
