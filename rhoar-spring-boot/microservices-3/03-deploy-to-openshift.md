@@ -22,13 +22,20 @@ Either click on the route link through the OpenShift web view or click this link
 ![Circuit Breaker page](../../assets/middleware/rhoar-microservices/circuit-mainpage.png)
 
 
+
 **3. Test current functionality**
 
-``curl http://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/greeting``{{execute}}
-
-``curl -X PUT -H "Content-Type: application/json" -d '{"state": "fail"}' http://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/state``{{execute}}
+Although our application has a nice web view, we're going to interact with it through our terminal for testing purposes. The first thing we have to do is call our greeting service.
 
 ``curl http://spring-boot-circuit-breaker-greeting-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/greeting``{{execute}}
+
+ Since we should have no issue and our application is online we should get our normal response, which should look like this:
+ 
+ ```json
+ {"content":"Hello, World!"}
+ ```
+
+This means that everything is working and our circuit is open!
 
 ## Congratulations
 
