@@ -16,7 +16,7 @@ In that simple example there may be no reason to filter which users see which ou
 
 On top of testing, we can also use Load Balancing to help implement different deployment strategies that give us some advantages. One of those is the `Blue/Green Deployment` strategy. The idea behind Blue/Green deployment is to have two deployment environments that we swap between. When we start the process, both regions have the exact same code but only one is the `live` region. The region that isn't live is the `backup` region for now. Once a new version comes out we push those changes to our backup region. This now becomes the `staging` region for our new version. Once we determine that our new version is stable, we reallocate all of the traffic that was going to our previous live region to go to our new staging region. Our `staging` region becomes our `live` region, and our `live` region becomes our `backup` region.
 
-One of the major benefits to this deployment strategy is that it's very quick and easy to revert to a previous version. All it takes is diverting the traffic to the region that's deployed but not in use. Blue/Green deployment also minimizes downtime since our application is never taken fully down, the traffic is only being directed to our new regions. You can read more about `Blue/Green Deployment` [here](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+One of the major benefits to this deployment strategy is that it's very quick and easy to revert to a previous version. All it takes is diverting the traffic to the region that's deployed but not in use. Blue/Green deployment also minimizes downtime since our application is never wholly offline, the traffic is only being directed to our new regions. You can read more about `Blue/Green Deployment` [here](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
 **1.3 Canary Deployment**
 
@@ -30,11 +30,9 @@ Load Balancing functionality is built into OpenShift by default. OpenShift provi
 
 ![Route Exposure](../../assets/middleware/rhoar-microservices/route-expose.png)
 
- The Router will then split the traffic on to the different services that have been requested. It's the service that defines how it's distributed, but since the router is the one splitting the traffic you get to decide how to split which traffic goes to which of the multiple service instances.
+ The Router will then split the traffic on to the different services that have been requested. It's the service that defines how it's distributed, so although the router is the one splitting the traffic, you get to decide how to split which traffic goes to which of the multiple service instances from within the service.
 
 ![Route Splitting](../../assets/middleware/rhoar-microservices/route-split.png)
-
-
 
 You can read more about Load Balancing [here](https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/spring_boot_microservices_on_red_hat_openshift_container_platform_3/index#load_balancer).
 
