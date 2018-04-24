@@ -20,7 +20,17 @@ Since we're choosing which users are being exposed to the new version of the app
 
 **2. How Load Balancing is handled in OpenShift**
 
-Load Balancing is functionality built into OpenShift by default.
+Load Balancing functionality is built into OpenShift by default. OpenShift provides its load balancing through its concept of service abstraction. All incoming traffic first comes through a Router, which is responsible for exposing the service externally for users.
+
+![Route Exposure](../../assets/middleware/rhoar-microservices/route-expose.png)
+
+ The Router will then split the traffic on to the different services that have been requested. It's the service that defines how it's distributed, but since the router is the one splitting the traffic you get to decide how to split which traffic goes to which of the multiple service instances.
+
+![Route Splitting](../../assets/middleware/rhoar-microservices/route-split.png)
+
+
+
+Read more about Load Balancing [here](https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/spring_boot_microservices_on_red_hat_openshift_container_platform_3/index#load_balancer).
 
 
 ## Congratulations
