@@ -84,16 +84,20 @@ Go to the overview and our final step is to expose the routes we require. The fo
 
 For each of these routes, click the `Create Route` button and then scroll down and click `Create`. After we've created all four, our JBoss AMQ setup is finally complete!
 
-<!-- Finally we can deploy AMQ: (TODO NOT WORKING)
+<!-- 
+
+amq-tcp-ssl
+
+show options for secure routes
+passthrough tls termination
+
+brokerURL” value=“failover://ssl://frtib-broker-frtib-broker.rhel-cdk.10.1.2.2.xip.io:443” />
 
 
-oc create route passthrough --service amq63-amq-tcp-ssl && \
+https://github.com/welshstew/activemq-openshift-broker-projects
+https://github.com/fabric8-quickstarts/spring-boot-camel-amq/blob/master/src/main/java/io/fabric8/quickstarts/camel/amq/Application.java
 
-oc create route passthrough --service amq63-amq-stomp-ssl && \
-
-oc create route passthrough --service amq63-amq-amqp-ssl && \
-
-oc create route passthrough --service amq63-amq-mqtt-ssl -->
+-->
 
 **3. Deploy the application to OpenShift**
 
