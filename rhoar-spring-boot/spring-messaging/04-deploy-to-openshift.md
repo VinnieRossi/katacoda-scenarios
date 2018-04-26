@@ -35,8 +35,6 @@ We should see `template "amq62-ssl" created` which means we're done creating our
 
 Now we need to make our Service Account for the broker. In order to do that we must first create our ServiceAccount, which we're naming `amq-service-account`:
 
-``echo '{"kind": "ServiceAccount", "apiVersion": "v1", "metadata": {"name": "amq-service-account"}}' | oc create -f -``{{execute}}
-
 ``oc create serviceaccount amq-service-account``{{execute}}
 
 Now we simply add the view role to our newly created Service Account:
