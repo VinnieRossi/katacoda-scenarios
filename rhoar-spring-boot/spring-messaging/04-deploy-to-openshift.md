@@ -6,7 +6,7 @@ Before we deploy the application to OpenShift we need to add health checks so th
 
 Spring Boot provides a nice feature for health checks called Actuator. Actuator is a project which exposes health data under the API path `/health` that is collected during application runtime automatically. All we need to do to enable this feature is to add the following dependency to ``pom.xml``{{open}} at the **TODO** comment..
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: ADD Actuator dependency here -->">
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add Actuator dependency here -->">
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
@@ -45,22 +45,22 @@ Now we simply add the view role to our newly created Service Account:
 
 Now that our Service Account is created and has the role required, next we need to add SSL keys. When deploying AMQ to OpenShift we are required to provide SSL keys. If you do not have your own enterprise keys (such as for a Dev environment) you can create your own. Execute the following to create the SSL keys:
 
-<!-- ``keytool -genkey -noprompt -trustcacerts -alias broker -keyalg RSA -keystore broker.ks -keypass password -storepass password -dname "cn=Dev, ou=engineering, o=company, c=US"``{{execute}}
-------------------------------------
+``keytool -genkey -noprompt -trustcacerts -alias broker -keyalg RSA -keystore broker.ks -keypass password -storepass password -dname "cn=Dev, ou=engineering, o=company, c=US"``{{execute}}
+
 ``keytool -export -noprompt -alias broker -keystore broker.ks -file broker_cert -storepass password``{{execute}}
------------------------------------
+
 ``keytool -genkey -noprompt -trustcacerts -alias client -keyalg RSA -keystore client.ks -keypass password -storepass password -dname "cn=Dev, ou=engineering, o=company, c=US"``{{execute}}
------------------------------------
+
 ``keytool -import -noprompt -trustcacerts -alias broker -keystore client.ts -file broker_cert -storepass password``{{execute}}
-----------------------------------------------------
----------------------------------------------------- -->
-``keytool -genkey -alias broker -keyalg RSA -keystore broker.ks``{{execute}}
+
+<!-- ``keytool -genkey -alias broker -keyalg RSA -keystore broker.ks``{{execute}}
 
 ``keytool -export -alias broker -keystore broker.ks -file broker_cert``{{execute}}
 
 ``keytool -genkey -alias client -keyalg RSA -keystore client.ks``{{execute}}
 
-``keytool -import -alias broker -keystore client.ts -file broker_cert``{{execute}}
+``keytool -import -alias broker -keystore client.ts -file broker_cert``{{execute}} -->
+If all of the commands were ran successfully, we should see `Certificate was added to keystore` in our terminal.
 
 Next we will import these certificates into OpenShift as secrets:
 
@@ -72,7 +72,7 @@ And now all of our configuration is complete. Now it's time to create the AMQ in
 
 **2.3 Create AMQ Instance**
 
-Log into the web view and click `Add to Project` followed by `Browse Catalog`. We should now see a new template under the `Technologies` section that says `Messaging`:
+Log into the web view and select our `amq-demo` project. Then select `Add to Project` followed by `Browse Catalog`. We should now see a new template under the `Technologies` section that says `Messaging`:
 
 ![Messaging](../../assets/middleware/rhoar-messaging/messaging.png)
 
