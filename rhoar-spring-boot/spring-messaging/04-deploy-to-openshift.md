@@ -25,9 +25,9 @@ In order create our template we have to load a `json` file with all of the confi
 
 After we're logged in, confirm that we're using the proper project. We should see output that says: `Using project "amq-demo"`. Since we're in the right project, let's go ahead and load up our templates:
 
-``oc create -n openshift -f \ https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.8/jboss-image-streams.json``{{execute}}
+``oc create -n openshift -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.8/jboss-image-streams.json``{{execute}}
 
-``oc replace -n openshift -f \ https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.8/jboss-image-streams.json``{{execute}}
+``oc replace -n openshift -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.8/jboss-image-streams.json``{{execute}}
 
 ``oc -n openshift import-image jboss-amq-62:1.7``{{execute}}
 
@@ -122,6 +122,9 @@ The four SSL routes we have are:
 `amq-tcp-ssl`
 
 Click the `Create Route` button for the `amq-amqp-ssl` route 
+
+ADD ROUTE TO OPENSHIFT-PROPERTIES
+DONE
 
 
 <!-- For each of these routes, click the `Create Route` button and then scroll down and click `Create`. After we've created all four, our JBoss AMQ setup is finally complete! -->
