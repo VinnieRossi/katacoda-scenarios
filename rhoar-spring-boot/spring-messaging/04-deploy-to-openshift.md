@@ -70,8 +70,7 @@ Then we add the view role to our newly created Service Account:
 
 Now that our Service Account is created and has the role required, next we need to add the parameters to the spec field and specify the service account we're going to be using:
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="# TODO: Add Service Account variables">
-  securityContext: {}
+<pre class="file" data-filename="src/main/fabric8/deployment.yml" data-target="insert" data-marker="# TODO: Add Service Account variables">
   serviceAccount: amq-service-account
   serviceAccountName: amq-service-account
 </pre>
@@ -121,7 +120,7 @@ The four SSL routes we have are:
 `amq-stomp-ssl`
 `amq-tcp-ssl`
 
-Click the `Create Route` button for the `amq-amqp-ssl` route 
+Click the `Create Route` button for the `amq-amqp-ssl` route. On the next form with Route options, check the `a` checkbox and then select `Create`.
 
 ADD ROUTE TO OPENSHIFT-PROPERTIES
 DONE
