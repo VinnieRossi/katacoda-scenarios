@@ -5,13 +5,14 @@ Now that we've seen what OpenShift comes with out of the box, let's take a look 
 **1. Spring Libraries - Eureka and Ribbon**
 
 We're going to be looking at how Spring handles Service Discovery with a popular Netflix library known as `Eureka`. Eureka is a REST-based service that's used for Service Discovery within the Spring environment. We're going to be using it as our Service Reigster and taking a look at the Eureka Discovery Client, which provides a helpful view of all registered services. You can view the library and check out the `README.md` [here](https://github.com/Netflix/eureka).
-We'll be using the simple tutorial project found [here])https://github.com/spring-guides/gs-service-registration-and-discovery) to go over these concepts.
+We'll be using the simple tutorial project found [here](https://github.com/spring-guides/gs-service-registration-and-discovery) to go over these concepts.
 
 **2. Deploy Eureka Service**
 
 When integrating the Eureka library with an existing spring application there are three main changes that have to be made.
 
 **2.1 Add Eureka Server Dependency**
+
 First we must include the dependency in the existing service pom file. ``eureka-service/pom.xml``{{open}}
 This can be done by adding this snippet to the pom, although we've already added it to ours:
 
@@ -23,6 +24,7 @@ This can be done by adding this snippet to the pom, although we've already added
 ```
 
 **2.2 Add Eureka Annotation**
+
 The second important step is that we must add the `@EnableEurekaServer` annotation to our main application file, right where we start our Spring application. We can see that in the following file: ``eureka-service/src/main/java/hello/EurekaServiceApplication.java``{{open}}
 
 ```java
@@ -37,6 +39,7 @@ public class EurekaServiceApplication {
 ```
 
 **2.3 Add Eureka properties**
+
 The last step is to add some default properties into our `application.properties` file. Again we've already added ours, as seen here: ``eureka-service/src/main/resources/application.properties``{{open}}
 
 ```yaml
