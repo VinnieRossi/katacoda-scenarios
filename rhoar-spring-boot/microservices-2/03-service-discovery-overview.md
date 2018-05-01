@@ -20,6 +20,25 @@ The service acts as an internal load balancer, proxying any requested connection
 
 Since it's possible for microservices to go down from time to time, it's important to think of how that situation gets handled within the Service Register. Generally a service register is paired with a load balancer layer (mentioned in the previous section) that will seamlessly fail over upon discovering that the instance no longer exists. So if a service instance was to go down, the service register would not be able to return the required information and the load balancer would kick in to handle it while also caching the service registry lookups.
 
+**3. Service Discovery with Spring - Eureka**
+
+Netflix Ribbon includes Eureka for service discovery + load balancing?
+
+We're going to be looking at how Spring handles Service Discovery with a popular Netflix library known as `Eureka`. Eureka is a REST service that's used for You can view the library and check out the `README.md` [here](https://github.com/Netflix/eureka).
+
+Eureka blah blah. Using project from here: https://github.com/spring-guides/gs-service-registration-and-discovery. Eureka on port 8761
+(need second terminal)
+Set up eureka client and show what's required to register in prebuilt application. Then view the given application is showing up on client
+
+https://2886795327-8761-simba02.environments.katacoda.com/
+
+<!-- 
+https://spring.io/guides/gs/service-registration-and-discovery/
+
+http://www.baeldung.com/spring-cloud-netflix-eureka
+http://www.baeldung.com/spring-cloud-rest-client-with-netflix-ribbon
+
+ -->
 
 ## Congratulations
 
