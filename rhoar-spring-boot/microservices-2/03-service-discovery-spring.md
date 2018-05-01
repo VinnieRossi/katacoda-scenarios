@@ -63,7 +63,8 @@ After that's finished building successfully, click the link [here](https://[[HOS
 
 
 **3. Deploy Eureka Client**
-DEPLOY CLIENT AND VERIFY REGISTERED
+
+Similar to the Eureka-Server, there are three main changes that have to be made to a base Spring application before it's fully integrated with the Eureka Client.
 
 1. dependency
 ``eureka-client/pom.xml``{{open}}
