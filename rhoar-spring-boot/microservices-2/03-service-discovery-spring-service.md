@@ -38,7 +38,7 @@ public class EurekaServiceApplication {
 }
 ```
 
-**2.3 Add Eureka properties**
+**2.3 Add Eureka properties and Deploy**
 
 The last step is to add some default properties into our `application.properties` file. Again we've already added ours, as seen here: ``eureka-service/src/main/resources/application.properties``{{open}}
 
@@ -61,36 +61,10 @@ After that's finished building successfully, click the link [here](https://[[HOS
 
 ![Eureka client](../../assets/middleware/rhoar-microservices/eureka-client.png)
 
+If we take a look under the `Instances Currently Registerd with Eureka` section it should be empty, but we'll be changing that shortly.
 
-**3. Deploy Eureka Client**
-
-Similar to the Eureka-Server, there are three main changes that have to be made to a base Spring application before it's fully integrated with the Eureka Client.
-
-1. dependency
-``eureka-client/pom.xml``{{open}}
-
-2. `@EnableDiscoveryClient`
-``eureka-client/src/main/java/hello/EurekaClientApplication.java``{{open}}
-
-3. properties in application.properties
-``eureka-client/src/main/resources/application.properties``{{open}}
-
-
-
-``cd code/eureka-client/``{{execute}}
-
-``mvn spring-boot:run``{{execute}}
-
-now go on client, see that it's registered
-
-<!-- 
-https://spring.io/guides/gs/service-registration-and-discovery/
-
-http://www.baeldung.com/spring-cloud-netflix-eureka
-http://www.baeldung.com/spring-cloud-rest-client-with-netflix-ribbon
-
- -->
+![No Instances](../../assets/middleware/rhoar-microservices/eureka-no-instances.png)
 
 ## Congratulations
 
-We've now gone over two important core concepts when dealing with a microservice architecture and took a look at how OpenShift handles all of the heavy lifting for us in regards to Load Balancing and Service Discovery!
+We've now set up our Eureka Service Register. In our next section we're going to be registering a service and viewing it's status on our web view.
