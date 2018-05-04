@@ -4,11 +4,11 @@ Our health check is nice to determine if our application is online and healthy b
 
 **1. Sleuth and Tracing**
 
-Spring Cloud Sleuth is a project that was created to help developers track flows as requests travel throughout their systems. Sleuth uses similar terminology to Dapper, but we'll go over a quick overview to make sure we're all on teh same page.
+Spring Cloud Sleuth is a project that was created to help developers track flows as requests travel throughout their systems. Sleuth uses similar terminology to Dapper, but we'll go over a quick overview to make sure we're all on the same page.
 
-The concept of Tracing is simple; track a request as it passes through our system and periodically log the request so we can see if/when the requests became corrupted. If we log at every entry and exit point of all of our components we can greatly decrease the time spent debugging. We're able to very quickly narrow down where and when the application entered a failure state.
+The concept of Tracing is simple; track a request as it passes through our system and periodically log the request so we can see if/when the request became corrupted. If we log at every entry and exit point of all of our components we can greatly decrease the time spent debugging. We're able to very quickly narrow down where and when the application entered a failure state.
 
-If we were to have a request that went through multiple services and then returned, the entire lifecycle would be the full `trace`. As it passes through the different entry and exit points it enters a new `span` of its lifecycle, which is why we call those `Spans`. Since a single `trace` can have multiple `spans`, we create a single `traceID` for our component but multiple `spanIDs`, depending on the span that it's currently in.
+If we were to have a request that went through multiple services and was then returned, that entire lifecycle would be the full `trace`. As it passes through the different entry and exit points it enters a new `span` of its lifecycle, which is why we call those `Spans`. Since a single `trace` can have multiple `spans`, we create a single `traceID` for our component but multiple `spanIDs`, depending on the span that it's currently in.
 
 Luckily for us Sleuth handles all of these complexities! All we have to do is include the library in our project and we're good to go! To include Sleuth we have to add the required dependency to our pom file:
 
