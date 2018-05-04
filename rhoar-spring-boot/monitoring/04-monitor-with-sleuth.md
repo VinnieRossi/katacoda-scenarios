@@ -14,10 +14,10 @@ If we were to have a request that went through multiple services and was then re
 Luckily for us Sleuth handles all of these complexities! All we have to do is include the library in our project and we're good to go! To include Sleuth we have to add the required dependency to our pom file:
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add Sleuth dependency here -->">
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-sleuth</artifactId>
-</dependency>
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
+    &lt;/dependency&gt;
 </pre>
 
 Now that we have our dependency set up, we're going to add some basic logging. Let's add an info-level log to our main controller:
