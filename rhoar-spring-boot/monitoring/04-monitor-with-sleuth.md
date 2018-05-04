@@ -12,7 +12,7 @@ If we were to have a request that went through multiple services and was then re
 
 **2. Add basic logging**
 Luckily for us Sleuth handles all of these complexities! All we have to do is include the library in our project and we're good to go! To include Sleuth we have to add the required dependency to our pom file:
-
+``pom.xml``{{open}}
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add Sleuth dependency here -->">
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
@@ -21,6 +21,7 @@ Luckily for us Sleuth handles all of these complexities! All we have to do is in
 </pre>
 
 Now that we have our dependency set up, we're going to add some basic logging. Let's add an info-level log to our main controller:
+``src/main/java/com/example/service/HomeController.java``{{open}}
 
 <pre class="file" data-filename="src/main/java/com/example/service/HomeController.java" data-target="insert" data-marker="// TODO: Add Sleuth logging here">
 log.info("Entering application");
@@ -28,6 +29,7 @@ logMessage();
 </pre>
 
 We're also going to add another function that only contains a logging statement that we're calling in our main controller function:
+``src/main/java/com/example/service/HomeController.java``{{open}}
 
 <pre class="file" data-filename="src/main/java/com/example/service/HomeController.java" data-target="insert" data-marker="//TODO: Add blank logging function">
 public void logMessage() {
@@ -58,7 +60,6 @@ The first number that we see is the `traceID`. That's the ID that's used through
 `XXX:XXX:XXX`
 
 For us both of our values are the same, but if we were to create additional spans manually we would see different `spanID`s while keeping the same `traceID`. We can also see that both of our log messages have the same value since they were both called within the same trace and span. If we refresh our main page, we will see the same two messages but both with different trace and span ids.
-
 
 ## Congratulations
 
