@@ -10,6 +10,7 @@ The concept of Tracing is simple; track a request as it passes through our syste
 
 If we were to have a request that went through multiple services and was then returned, that entire lifecycle would be the full `trace`. As it passes through the different entry and exit points it enters a new `span` of its lifecycle, which is why we call those `Spans`. Since a single `trace` can have multiple `spans`, we create a single `traceID` for our component but multiple `spanIDs`, depending on the span that it's currently in.
 
+**2. Add basic logging**
 Luckily for us Sleuth handles all of these complexities! All we have to do is include the library in our project and we're good to go! To include Sleuth we have to add the required dependency to our pom file:
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add Sleuth dependency here -->">
@@ -19,20 +20,44 @@ Luckily for us Sleuth handles all of these complexities! All we have to do is in
 </dependency>
 </pre>
 
-Add some base logging and view log
+Now that we have our dependency set up, we're going to add some basic logging. Let's add an info-level log to our main controller:
 
-`log.info("Entering application");`
-`timer 3 seconds`
-`log.info("Leaving application");`
+<pre class="file" data-filename="src/main/java/com/example/service/HomeController.java" data-target="insert" data-marker="// TODO: Add Sleuth logging here">
+log.info("Entering application");
+logMessage();
+</pre>
 
-Add zipkin to see visuals?
+We're also going to add another function that only contains a logging statement that we're calling in our main controller function:
 
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-zipkin</artifactId>
-</dependency>
-```
+<pre class="file" data-filename="src/main/java/com/example/service/HomeController.java" data-target="insert" data-marker="//TODO: Add blank logging function">
+public void logMessage() {
+    log.info("Logging from function");
+}
+</pre>
+
+**3. Build locally**
+
+Now that we have both of our log statements created, let's test it out! We're going to build our application locally so we can easily take a look at the logs:
+
+``mvn spring-boot:run``{{execute}}
+
+After that's complete we'll clear the terminal so that we can see the logging output more easily.
+
+``clear``{{execute}}
+
+Now we can click [here]() or on the `Local Web Browser` tab to pull up the local project. After we hit the main page and see the success screen, take another look at the terminal. We should see two logging statements that look similar to this:
+
+`Entering application`
+
+`Logging from function`
+
+Not only do we see the log message that we created, we also see a lot of additional info. Let's break it down.
+
+The first number that we see is the `traceID`. That's the ID that's used throughout the entire request and is unique to this specific trace. The second number is the `spanID`, which tells us which span we're currently in on the full trace. So our logging messages follow this format:
+
+`XXX:XXX:XXX`
+
+For us both of our values are the same, but if we were to create additional spans manually we would see different `spanID`s while keeping the same `traceID`. We can also see that both of our log messages have the same value since they were both called within the same trace and span. If we refresh our main page, we will see the same two messages but both with different trace and span ids.
 
 
 ## Congratulations
