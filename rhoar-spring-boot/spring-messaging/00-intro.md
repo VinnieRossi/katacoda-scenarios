@@ -1,2 +1,5 @@
 In this scenario you will learn more about developing Spring Boot applications using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. We will be building a simple Spring Boot application which produces messages to and consumes messages from a JBOSS AMQ resource.
 
+## What we're covering
+
+We're going to be going over message queues via JBOSS AMQ. This means we're going to be creating all of the expected components that we need for messaging, including *listeners*, *receivers*, and *producers*. Through these different objects, we will be able to send messages into and read them from a queue that we'll be creating. Ours will be a simple queue that handles simple message elements, but we can modify the queue to handle any type of content and become very flexible.
